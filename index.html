@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mabel Marín · Directora, Actriz y Dramaturga</title>
+<meta name="description" content="Currículum y trayectoria de Mabel Marín — directora, actriz, dramaturga y profesora de teatro costarricense. Doble Premio Nacional de Teatro a Mejor Dirección (2012 y 2020). Magíster en Dirección Teatral. Doctorado en curso, Universidad de Kent, Inglaterra." />
+<meta name="author" content="Mabel Marín" />
+<meta name="theme-color" content="#0a0807" />
+
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Mabel Marín · Directora, Actriz y Dramaturga" />
+<meta property="og:description" content="Trayectoria de una directora, actriz y dramaturga costarricense. Doble Premio Nacional de Teatro a Mejor Dirección." />
+<meta property="og:url" content="https://www.mabelmarin.org" />
+<meta property="og:site_name" content="Mabel Marín" />
+<meta property="og:image" content="https://static.wixstatic.com/media/57b89e_7967102875054d549c7719a4d4820ecf~mv2.jpg/v1/crop/x_0,y_146,w_1560,h_1366/fill/w_1040,h_910,al_c,q_85,enc_avif,quality_auto/_DSC0588_JPG.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mabel Marín · Directora, Actriz y Dramaturga" />
+
+<link rel="canonical" href="https://www.mabelmarin.org" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Marcellus&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Mabel Marín","jobTitle":"Directora, Actriz y Dramaturga","nationality":"Costa Rica","url":"https://www.mabelmarin.org","email":"mabelmarin86@gmail.com","telephone":"+50688711037","address":{"@type":"PostalAddress","addressLocality":"San José","addressCountry":"CR"},"sameAs":["https://www.facebook.com/mabelmarin86/","https://www.instagram.com/yomabelita/","https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A"],"award":"Premio Nacional de Teatro a Mejor Dirección (2012 y 2020)"}
+</script>
+
+<style>
+:root{
+  --bg:#0a0807;
+  --bg-2:#110e0c;
+  --bg-3:#1a1512;
+  --ink:#f3ebdd;
+  --ink-soft:#c9b89f;
+  --ink-mute:#857762;
+  --gold:#c9a04e;
+  --gold-bright:#edc878;
+  --crimson:#7a1717;
+  --crimson-soft:#9c2a2a;
+  --line:rgba(201,160,78,.20);
+  --line-soft:rgba(243,235,221,.08);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'Marcellus',serif;
+  --sans:'Jost',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;
+  line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* atmospheric stage light */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1100px 700px at 50% -15%, rgba(201,160,78,.11), transparent 60%),
+    radial-gradient(800px 600px at 88% 8%, rgba(201,160,78,.05), transparent 55%),
+    radial-gradient(900px 900px at 10% 100%, rgba(122,23,23,.07), transparent 60%);
+}
+/* film grain + vignette */
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.vignette{position:fixed;inset:0;z-index:59;pointer-events:none;
+  box-shadow:inset 0 0 240px 60px rgba(0,0,0,.7)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 30px;position:relative;z-index:1}
+
+/* spotlight cursor */
+.spot{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:2;
+  background:radial-gradient(circle, rgba(237,200,120,.07), transparent 65%);
+  transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;left:50%;top:50%}
+@media(hover:hover) and (pointer:fine){.spot.on{opacity:1}}
+
+/* ===== CURTAIN ===== */
+.curtain{position:fixed;inset:0;z-index:200;display:flex;pointer-events:none}
+.curtain .panel{flex:1;background:
+   linear-gradient(90deg,#5a0f0f,#7a1717 18%,#5a0f0f 38%,#8a1d1d 58%,#5a0f0f 80%,#6e1414);
+   background-size:60px 100%;box-shadow:inset 0 0 120px rgba(0,0,0,.6)}
+.curtain .panel.l{transform-origin:left;animation:openL 1.5s 2.4s cubic-bezier(.7,0,.3,1) forwards}
+.curtain .panel.r{transform-origin:right;animation:openR 1.5s 2.4s cubic-bezier(.7,0,.3,1) forwards}
+.curtain .title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:2;animation:fadeTitle .9s 1.7s forwards;opacity:1}
+.curtain .title .name{font-family:var(--display);font-size:clamp(2.4rem,7vw,5rem);letter-spacing:.3em;
+  color:var(--gold-bright);text-indent:.3em;opacity:0;animation:rise 1s .5s forwards}
+.curtain .title .sub{font-size:.8rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ink-soft);
+  margin-top:18px;opacity:0;animation:rise 1s .9s forwards}
+.curtain.done{display:none}
+@keyframes openL{to{transform:scaleX(0)}}
+@keyframes openR{to{transform:scaleX(0)}}
+@keyframes fadeTitle{to{opacity:0}}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:22px 30px;transition:all .45s ease;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,8,7,.88);backdrop-filter:blur(16px);border-bottom-color:var(--line);padding:13px 30px}
+.brand{font-family:var(--display);font-size:1.35rem;letter-spacing:.26em;color:var(--ink);text-indent:.26em}
+.brand b{color:var(--gold);font-weight:400}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);position:relative;font-weight:400}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--gold);transition:width .35s}
+.nav-links a:hover{color:var(--gold-bright)}
+.nav-links a:hover::after{width:100%}
+.lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.66rem;letter-spacing:.1em}
+.lang-toggle button{background:none;border:none;color:var(--ink-mute);padding:6px 13px;cursor:pointer;font-family:var(--sans);letter-spacing:.1em;transition:all .3s;font-weight:400}
+.lang-toggle button.active{background:var(--gold);color:#1a1206}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:42px;height:38px;font-size:1.2rem;cursor:pointer;border-radius:3px}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:130px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center}
+.hero-eyebrow{font-size:.76rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold);margin-bottom:30px;display:flex;align-items:center;gap:16px}
+.hero-eyebrow::before{content:"";width:40px;height:1px;background:var(--gold)}
+.hero h1{font-family:var(--display);font-weight:400;line-height:.92;font-size:clamp(3.6rem,9vw,8rem);letter-spacing:.01em;margin-bottom:6px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:block;transform:translateY(110%)}
+.hero h1 .ln.go span{transform:none;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.hero h1 .ln:nth-child(2).go span{transition-delay:.12s;color:var(--gold)}
+.hero-roles{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.8vw,2.1rem);color:var(--ink-soft);margin:26px 0 14px;opacity:0;transform:translateY(20px)}
+.hero-roles.go{opacity:1;transform:none;transition:.9s .4s cubic-bezier(.16,1,.3,1)}
+.hero-loc{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:38px;opacity:0}
+.hero-loc.go{opacity:1;transition:.9s .55s}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(20px)}
+.hero-cta.go{opacity:1;transform:none;transition:.9s .65s cubic-bezier(.16,1,.3,1)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:11px;padding:16px 32px;font-size:.74rem;
+  letter-spacing:.22em;text-transform:uppercase;font-weight:400;cursor:pointer;border:1px solid var(--gold);overflow:hidden;z-index:1;transition:color .4s}
+.btn span{position:relative;z-index:2;transition:transform .35s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.7,0,.3,1);z-index:1}
+.btn:hover::before{transform:scaleX(1)}
+.btn-solid{background:var(--gold);color:#1a1206}
+.btn-solid::before{background:var(--gold-bright)}
+.btn-ghost{color:var(--gold-bright);background:transparent}
+.btn-ghost:hover{color:#1a1206}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(5px)}
+.hero-portrait{position:relative}
+.hero-portrait .frame{position:absolute;inset:-16px;border:1px solid var(--line);transform:translate(20px,20px);z-index:0;transition:transform 1.2s cubic-bezier(.16,1,.3,1) .5s}
+.hero-portrait.go .frame{transform:translate(14px,14px)}
+.hero-portrait .ph{position:relative;overflow:hidden;z-index:1}
+.hero-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;filter:grayscale(.3) contrast(1.05);transform:scale(1.15);transition:transform 1.6s cubic-bezier(.16,1,.3,1) .3s,filter 1s}
+.hero-portrait.go img{transform:scale(1)}
+.hero-portrait:hover img{filter:grayscale(0) contrast(1.05)}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-mute);display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0}
+.scroll-hint.go{opacity:1;transition:1s 1.2s}
+.scroll-hint::after{content:"";width:1px;height:42px;background:linear-gradient(var(--gold),transparent);animation:pulse 2.2s infinite}
+
+/* ===== ORNAMENT / ACT LABEL ===== */
+.act-label{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.act-label .num{font-family:var(--display);font-size:1.65rem;color:var(--gold);letter-spacing:.08em}
+.act-label .ln{flex:0 0 56px;height:1px;background:var(--gold);opacity:.5}
+.act-label .tag{font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--ink-mute)}
+
+/* ===== STATS / MARQUEE ===== */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);position:relative}
+.stats::before,.stats::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line-soft)}
+.stats::before{top:6px}.stats::after{bottom:6px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:56px 22px;text-align:center;border-right:1px solid var(--line-soft);position:relative}
+.stat:last-child{border-right:none}
+.stat .num{font-family:var(--display);font-size:clamp(2.8rem,5.5vw,4.4rem);color:var(--gold);line-height:1}
+.stat .num .pre{font-size:.5em;vertical-align:.45em;color:var(--gold-bright)}
+.stat .lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:16px}
+
+/* ===== SECTIONS ===== */
+section{padding:130px 0;position:relative}
+.sec-head{margin-bottom:62px;max-width:780px}
+.sec-title{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,5.5vw,4rem);line-height:1.05;letter-spacing:.01em}
+.sec-sub{color:var(--ink-soft);font-size:1.08rem;margin-top:20px;max-width:640px;font-weight:300}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.about-text .lead{font-family:var(--serif);font-size:1.7rem;font-style:italic;color:var(--ink);line-height:1.4;margin-bottom:26px}
+.about-text p{color:var(--ink-soft);margin-bottom:22px;font-size:1.08rem;font-weight:300}
+.about-text p b{color:var(--ink);font-weight:400}
+.creds{display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--line-soft);padding:10px}
+.cred{display:flex;gap:18px;padding:22px 22px;border-bottom:1px solid var(--line-soft);transition:background .3s}
+.cred:last-child{border-bottom:none}
+.cred:hover{background:var(--bg-3)}
+.cred .yr{font-family:var(--serif);color:var(--gold);font-size:1.15rem;min-width:62px;font-weight:600;font-style:italic}
+.cred .d{color:var(--ink-soft);font-size:.98rem}
+.cred .d b{color:var(--ink);font-weight:400;display:block;font-size:1.05rem;margin-bottom:2px}
+
+/* ===== AWARDS ===== */
+.awards{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.awards::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 50% 0%,rgba(122,23,23,.12),transparent 70%)}
+.awards-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.award{border:1px solid var(--line);padding:50px 42px;position:relative;background:radial-gradient(420px 220px at 50% 0%,rgba(201,160,78,.07),transparent);transition:transform .5s,border-color .5s}
+.award:hover{transform:translateY(-8px);border-color:var(--gold)}
+.award .laurel{color:var(--gold);font-size:1.5rem;letter-spacing:.3em;margin-bottom:20px}
+.award .yr{font-family:var(--display);font-size:3.8rem;color:var(--gold);line-height:1}
+.award h3{font-family:var(--serif);font-size:1.65rem;font-weight:500;margin:12px 0 8px;font-style:italic}
+.award p{color:var(--ink-mute);font-size:.92rem;letter-spacing:.02em}
+
+/* ===== DISCIPLINES ===== */
+.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+.disc{padding:44px 30px;background:var(--bg);transition:background .4s}
+.disc:hover{background:var(--bg-2)}
+.disc .rn{font-family:var(--serif);font-size:1.5rem;font-style:italic;color:var(--gold);margin-bottom:20px}
+.disc h3{font-family:var(--display);font-size:1.35rem;font-weight:400;margin-bottom:12px;letter-spacing:.02em}
+.disc p{color:var(--ink-mute);font-size:.92rem;line-height:1.65}
+
+/* ===== FILTER + WORKS ===== */
+.filters{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:46px}
+.filters button{background:transparent;border:1px solid var(--line-soft);color:var(--ink-mute);padding:10px 22px;border-radius:999px;font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-weight:400}
+.filters button:hover{color:var(--ink);border-color:var(--line)}
+.filters button.active{background:var(--gold);color:#1a1206;border-color:var(--gold)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.work{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--line-soft);transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .5s}
+.work:hover{transform:translateY(-8px);border-color:var(--line)}
+.work-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--bg-3)}
+.work-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1),filter .6s;filter:grayscale(.55) brightness(.85)}
+.work:hover .work-img img{transform:scale(1.08);filter:grayscale(0) brightness(1)}
+.work-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,7,.5),transparent 50%);opacity:.7;transition:opacity .5s}
+.work:hover .work-img::after{opacity:.2}
+.work-img .yr{position:absolute;top:14px;left:14px;z-index:2;background:rgba(10,8,7,.78);color:var(--gold);font-family:var(--display);font-size:1.05rem;padding:4px 13px;backdrop-filter:blur(4px)}
+.work-body{padding:24px}
+.work-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:500;line-height:1.12;margin-bottom:11px}
+.work-meta{font-size:.83rem;color:var(--ink-mute);line-height:1.55}
+.work-meta .by{color:var(--ink-soft)}
+.tag{display:inline-block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:4px 10px;margin-top:15px}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;max-width:840px;margin:0 auto;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--gold),var(--line),var(--gold))}
+.tl-item{position:relative;padding:0 0 42px 38px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-27px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);transition:background .3s,box-shadow .3s}
+.tl-item:hover::before{background:var(--gold);box-shadow:0 0 14px rgba(201,160,78,.6)}
+.tl-item .yr{font-family:var(--serif);color:var(--gold);font-size:1.2rem;font-weight:600;font-style:italic}
+.tl-item h3{font-family:var(--serif);font-size:1.6rem;font-weight:500;margin:2px 0 7px}
+.tl-item p{color:var(--ink-mute);font-size:.92rem}
+.tl-item p .by{color:var(--ink-soft)}
+.tl-film{border:1px solid var(--gold);background:radial-gradient(340px 120px at 0 50%,rgba(201,160,78,.1),transparent);padding:18px 22px}
+.tl-film .badge{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+
+/* ===== PLAYS ===== */
+.plays{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.play{border:1px solid var(--line-soft);background:var(--bg-2);padding:40px 36px;transition:border-color .4s,transform .4s;position:relative}
+.play:hover{border-color:var(--line);transform:translateY(-5px)}
+.play-top{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:18px}
+.play h3{font-family:var(--serif);font-size:1.8rem;font-weight:500;line-height:1.08}
+.play .yr{font-family:var(--serif);color:var(--gold);font-size:1.25rem;font-weight:600;font-style:italic;white-space:nowrap}
+.play p{color:var(--ink-soft);font-size:.97rem;line-height:1.7;margin-bottom:24px;font-weight:300}
+.play .dl{display:inline-flex;align-items:center;gap:9px;color:var(--gold-bright);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:5px;transition:gap .3s,border-color .3s}
+.play .dl:hover{gap:15px;border-color:var(--gold)}
+
+/* ===== ACADEMIC ===== */
+.acad{display:flex;flex-direction:column;border:1px solid var(--line-soft)}
+.acad-item{display:grid;grid-template-columns:96px 1fr auto;gap:28px;align-items:center;padding:32px 34px;border-bottom:1px solid var(--line-soft);transition:background .35s}
+.acad-item:last-child{border-bottom:none}
+.acad-item:hover{background:var(--bg-2)}
+.acad-item .yr{font-family:var(--display);color:var(--gold);font-size:1.9rem}
+.acad-item h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;line-height:1.25}
+.acad-item .src{color:var(--ink-mute);font-size:.86rem;margin-top:6px}
+.acad-item .dl{color:var(--gold-bright);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;border:1px solid var(--line);padding:11px 18px;transition:all .3s}
+.acad-item .dl:hover{background:var(--gold);color:#1a1206}
+
+/* ===== GALLERY ===== */
+.gallery{columns:3;column-gap:20px}
+.gallery figure{margin:0 0 20px;break-inside:avoid;overflow:hidden;position:relative}
+.gallery img{width:100%;filter:grayscale(.5) brightness(.9);transition:filter .6s,transform .8s cubic-bezier(.16,1,.3,1);cursor:zoom-in}
+.gallery figure:hover img{filter:grayscale(0) brightness(1);transform:scale(1.04)}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 80% 100%,rgba(122,23,23,.1),transparent 65%)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.contact-info .line{display:flex;gap:16px;align-items:flex-start;margin-bottom:26px}
+.contact-info .ic{color:var(--gold);min-width:24px;margin-top:3px}
+.contact-info .ic svg{width:20px;height:20px;fill:none;stroke:var(--gold);stroke-width:1.4}
+.contact-info .line a,.contact-info .line span{color:var(--ink-soft);font-size:1.04rem;transition:color .3s}
+.contact-info .line a:hover{color:var(--gold-bright)}
+.socials{display:flex;gap:14px;margin-top:38px}
+.socials a{width:48px;height:48px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);transition:all .35s}
+.socials a svg{width:19px;height:19px;fill:currentColor}
+.socials a:hover{background:var(--gold);color:#1a1206;border-color:var(--gold);transform:translateY(-4px)}
+form{display:flex;flex-direction:column;gap:17px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+input,textarea{background:var(--bg);border:1px solid var(--line-soft);color:var(--ink);padding:16px 19px;font-family:var(--sans);font-size:.95rem;font-weight:300;transition:border-color .3s;width:100%}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:var(--ink-mute)}
+textarea{resize:vertical;min-height:140px}
+form button{align-self:flex-start;margin-top:6px}
+
+/* ===== FOOTER ===== */
+footer{padding:54px 0;text-align:center;border-top:1px solid var(--line-soft)}
+footer .brand{font-size:1.2rem;margin-bottom:16px;display:inline-block}
+footer p{color:var(--ink-mute);font-size:.8rem;letter-spacing:.06em}
+footer .made{margin-top:10px;font-size:.7rem;color:rgba(133,119,98,.55)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(6,5,4,.96);z-index:210;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+.lb.on{display:flex;animation:fadeIn .3s}
+.lb img{max-width:90vw;max-height:88vh;object-fit:contain;filter:none}
+.lb .x{position:absolute;top:26px;right:32px;color:var(--ink);font-size:2rem;cursor:pointer;font-family:var(--serif)}
+
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .hero-portrait{max-width:400px;order:-1}
+  .about-grid,.contact-grid,.awards-grid{grid-template-columns:1fr;gap:42px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-soft)}
+  .disc-grid{grid-template-columns:1fr 1fr}
+  .works{grid-template-columns:1fr 1fr}
+  .plays{grid-template-columns:1fr}
+  .gallery{columns:2}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  nav{padding:15px 20px}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .works,.disc-grid{grid-template-columns:1fr}
+  .gallery{columns:1}
+  .acad-item{grid-template-columns:1fr;gap:12px}
+  .row{grid-template-columns:1fr}
+  section{padding:90px 0}
+  .stat{padding:40px 14px}
+  .spot{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .curtain{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="spot" id="spot"></div>
+
+<!-- ===== CURTAIN ===== -->
+<div class="curtain" id="curtain">
+  <div class="title">
+    <div class="name">MABEL MARÍN</div>
+    <div class="sub" data-es="Directora · Actriz · Dramaturga" data-en="Director · Actress · Playwright">Directora · Actriz · Dramaturga</div>
+  </div>
+  <div class="panel l"></div>
+  <div class="panel r"></div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <a href="#top" class="brand">MABEL <b>MARÍN</b></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about" data-es="Perfil" data-en="Profile">Perfil</a>
+    <a href="#direccion" data-es="Dirección" data-en="Directing">Dirección</a>
+    <a href="#actuacion" data-es="Actuación" data-en="Acting">Actuación</a>
+    <a href="#dramaturgia" data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</a>
+    <a href="#academica" data-es="Académico" data-en="Academic">Académico</a>
+    <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+    <div class="lang-toggle">
+      <button id="es" class="active" onclick="setLang('es')">ES</button>
+      <button id="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <button class="nav-toggle" aria-label="Menú" onclick="var n=document.getElementById('navLinks');n.style.display=(getComputedStyle(n).display==='none')?'flex':'none'">≡</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow" data-es="Currículum · Teatro de Costa Rica" data-en="Curriculum · Theatre of Costa Rica">Currículum · Teatro de Costa Rica</div>
+      <h1>
+        <span class="ln" id="h1"><span>Mabel</span></span>
+        <span class="ln" id="h2"><span>Marín</span></span>
+      </h1>
+      <div class="hero-roles" id="hroles" data-es="Directora · Actriz · Dramaturga" data-en="Director · Actress · Playwright">Directora · Actriz · Dramaturga</div>
+      <div class="hero-loc" id="hloc" data-es="Doble Premio Nacional de Teatro a Mejor Dirección" data-en="Two-time National Theatre Award for Best Direction">Doble Premio Nacional de Teatro a Mejor Dirección</div>
+      <div class="hero-cta" id="hcta">
+        <a href="https://www.mabelmarin.org/_files/ugd/57b89e_cb223a12edb54937a5a6031bdb375c7e.pdf" target="_blank" rel="noopener" class="btn btn-solid"><span data-es="Descargar currículum" data-en="Download CV">Descargar currículum</span><span class="arr">→</span></a>
+        <a href="#direccion" class="btn btn-ghost"><span data-es="Ver trayectoria" data-en="View work">Ver trayectoria</span></a>
+      </div>
+    </div>
+    <div class="hero-portrait" id="hport">
+      <div class="frame"></div>
+      <div class="ph"><img src="https://static.wixstatic.com/media/57b89e_7967102875054d549c7719a4d4820ecf~mv2.jpg/v1/crop/x_0,y_146,w_1560,h_1366/fill/w_760,h_950,al_c,q_85,enc_avif,quality_auto/_DSC0588_JPG.jpg" alt="Retrato de Mabel Marín" /></div>
+    </div>
+  </div>
+  <div class="scroll-hint" id="shint" data-es="Inicia la función" data-en="The show begins">Inicia la función</div>
+</header>
+
+<!-- ===== STATS ===== -->
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num" data-count="20">0</div><div class="lbl" data-es="Obras dirigidas" data-en="Plays directed">Obras dirigidas</div></div>
+    <div class="stat"><div class="num" data-count="9">0</div><div class="lbl" data-es="Piezas escritas" data-en="Plays written">Piezas escritas</div></div>
+    <div class="stat"><div class="num" data-count="2">0</div><div class="lbl" data-es="Premios Nacionales" data-en="National Awards">Premios Nacionales</div></div>
+    <div class="stat"><div class="num"><span class="pre">+</span><span data-count="18">0</span></div><div class="lbl" data-es="Años en escena" data-en="Years on stage">Años en escena</div></div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Acto I" data-en="Act I">Acto I</span><span class="ln"></span><span class="tag" data-es="El perfil" data-en="The profile">El perfil</span></div>
+      <h2 class="sec-title" data-es="Una vida dedicada a la escena" data-en="A life devoted to the stage">Una vida dedicada a la escena</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text rv">
+        <p class="lead" data-es="Actriz, directora, dramaturga y profesora de teatro costarricense." data-en="Costa Rican actress, director, playwright and theatre professor.">Actriz, directora, dramaturga y profesora de teatro costarricense.</p>
+        <p data-es="A lo largo de su carrera ha actuado en múltiples espectáculos y ha <b>dirigido veinte obras de teatro</b>. Ha escrito <b>nueve piezas teatrales</b>, de las cuales cuatro han sido publicadas y ocho estrenadas." data-en="Throughout her career she has performed in numerous productions and has <b>directed twenty plays</b>. She has written <b>nine theatrical works</b>, four of them published and eight premiered.">A lo largo de su carrera ha actuado en múltiples espectáculos y ha <b>dirigido veinte obras de teatro</b>. Ha escrito <b>nueve piezas teatrales</b>, de las cuales cuatro han sido publicadas y ocho estrenadas.</p>
+        <p data-es="Actualmente es profesora en la Escuela de Arte Escénico de la Universidad Nacional de Costa Rica, y cursa su <b>Doctorado en la Universidad de Kent</b>, Inglaterra." data-en="She currently teaches at the School of Performing Arts of the National University of Costa Rica, and is pursuing her <b>doctorate at the University of Kent</b>, England.">Actualmente es profesora en la Escuela de Arte Escénico de la Universidad Nacional de Costa Rica, y cursa su <b>Doctorado en la Universidad de Kent</b>, Inglaterra.</p>
+      </div>
+      <div class="creds rv rv-d1">
+        <div class="cred"><span class="yr" data-es="En curso" data-en="Current">En curso</span><span class="d"><b data-es="Doctorado en Artes Escénicas" data-en="Doctorate in Performing Arts">Doctorado en Artes Escénicas</b><span data-es="Universidad de Kent, Inglaterra" data-en="University of Kent, England">Universidad de Kent, Inglaterra</span></span></div>
+        <div class="cred"><span class="yr">2016</span><span class="d"><b data-es="Magíster en Dirección Teatral" data-en="Master in Theatre Directing">Magíster en Dirección Teatral</b><span data-es="Universidad de Chile" data-en="University of Chile">Universidad de Chile</span></span></div>
+        <div class="cred"><span class="yr">2012</span><span class="d"><b data-es="Licenciatura en Artes Escénicas" data-en="Degree in Performing Arts">Licenciatura en Artes Escénicas</b><span data-es="Universidad Nacional de Costa Rica" data-en="National University of Costa Rica">Universidad Nacional de Costa Rica</span></span></div>
+        <div class="cred"><span class="yr" data-es="Bach." data-en="B.A.">Bach.</span><span class="d"><b data-es="Bachillerato en Artes Dramáticas" data-en="Bachelor in Dramatic Arts">Bachillerato en Artes Dramáticas</b><span data-es="Universidad de Costa Rica" data-en="University of Costa Rica">Universidad de Costa Rica</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AWARDS ===== -->
+<div class="awards">
+  <section style="padding:104px 0">
+    <div class="wrap">
+      <div class="sec-head rv" style="margin-bottom:48px">
+        <div class="act-label"><span class="num" data-es="Intermedio" data-en="Interlude">Intermedio</span><span class="ln"></span><span class="tag" data-es="Reconocimientos" data-en="Recognition">Reconocimientos</span></div>
+        <h2 class="sec-title" data-es="Premio Nacional de Teatro" data-en="National Theatre Award">Premio Nacional de Teatro</h2>
+        <p class="sec-sub" data-es="Doble galardonada a Mejor Dirección por el Ministerio de Cultura y Juventud de Costa Rica." data-en="Twice awarded Best Direction by the Ministry of Culture and Youth of Costa Rica.">Doble galardonada a Mejor Dirección por el Ministerio de Cultura y Juventud de Costa Rica.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award rv"><div class="laurel">❦</div><div class="yr">2020</div><h3 data-es="Mejor Dirección" data-en="Best Direction">Mejor Dirección</h3><p data-es="Premio Nacional de Teatro · Ministerio de Cultura y Juventud" data-en="National Theatre Award · Ministry of Culture and Youth">Premio Nacional de Teatro · Ministerio de Cultura y Juventud</p></div>
+        <div class="award rv rv-d1"><div class="laurel">❦</div><div class="yr">2012</div><h3 data-es="Mejor Dirección" data-en="Best Direction">Mejor Dirección</h3><p data-es="Premio Nacional de Teatro · Ministerio de Cultura y Juventud" data-en="National Theatre Award · Ministry of Culture and Youth">Premio Nacional de Teatro · Ministerio de Cultura y Juventud</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== DISCIPLINES ===== -->
+<section id="disciplinas">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Repertorio" data-en="Repertoire">Repertorio</span><span class="ln"></span><span class="tag" data-es="Disciplinas" data-en="Disciplines">Disciplinas</span></div>
+      <h2 class="sec-title" data-es="Cuatro oficios, una misma escena" data-en="Four crafts, one stage">Cuatro oficios, una misma escena</h2>
+    </div>
+    <div class="disc-grid">
+      <div class="disc rv"><div class="rn">I</div><h3 data-es="Dirección" data-en="Directing">Dirección</h3><p data-es="Veinte montajes para teatros nacionales, compañías y festivales." data-en="Twenty productions for national theatres, companies and festivals.">Veinte montajes para teatros nacionales, compañías y festivales.</p></div>
+      <div class="disc rv rv-d1"><div class="rn">II</div><h3 data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</h3><p data-es="Nueve piezas escritas; cuatro publicadas y ocho estrenadas." data-en="Nine plays written; four published and eight premiered.">Nueve piezas escritas; cuatro publicadas y ocho estrenadas.</p></div>
+      <div class="disc rv rv-d2"><div class="rn">III</div><h3 data-es="Actuación" data-en="Acting">Actuación</h3><p data-es="Interpretación en teatro y cine a lo largo de dos décadas." data-en="Performance in theatre and film across two decades.">Interpretación en teatro y cine a lo largo de dos décadas.</p></div>
+      <div class="disc rv rv-d3"><div class="rn">IV</div><h3 data-es="Docencia" data-en="Teaching">Docencia</h3><p data-es="Profesora e investigadora en artes escénicas, UNA." data-en="Professor and researcher in performing arts, UNA.">Profesora e investigadora en artes escénicas, UNA.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIRECTING ===== -->
+<section id="direccion" style="background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Acto II" data-en="Act II">Acto II</span><span class="ln"></span><span class="tag" data-es="Dirección" data-en="Directing">Dirección</span></div>
+      <h2 class="sec-title" data-es="Veinte montajes en escena" data-en="Twenty productions staged">Veinte montajes en escena</h2>
+      <p class="sec-sub" data-es="Trayectoria como directora, de 2008 a 2020." data-en="Her path as a director, from 2008 to 2020.">Trayectoria como directora, de 2008 a 2020.</p>
+    </div>
+    <div class="filters rv" id="dirFilters">
+      <button class="active" data-f="all" data-es="Todas" data-en="All">Todas</button>
+      <button data-f="2020s">2018–2020</button>
+      <button data-f="2015s">2015–2017</button>
+      <button data-f="early">2008–2013</button>
+      <button data-f="own" data-es="Texto propio" data-en="Own text">Texto propio</button>
+    </div>
+    <div class="works" id="worksGrid"></div>
+  </div>
+</section>
+
+<!-- ===== ACTING ===== -->
+<section id="actuacion">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Acto III" data-en="Act III">Acto III</span><span class="ln"></span><span class="tag" data-es="Actuación" data-en="Acting">Actuación</span></div>
+      <h2 class="sec-title" data-es="En escena y en pantalla" data-en="On stage and on screen">En escena y en pantalla</h2>
+    </div>
+    <div class="timeline rv" id="actingTimeline"></div>
+  </div>
+</section>
+
+<!-- ===== PLAYWRITING ===== -->
+<section id="dramaturgia" style="background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Acto IV" data-en="Act IV">Acto IV</span><span class="ln"></span><span class="tag" data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</span></div>
+      <h2 class="sec-title" data-es="Las obras escritas" data-en="The written works">Las obras escritas</h2>
+      <p class="sec-sub" data-es="Textos disponibles para lectura y descarga en PDF." data-en="Texts available to read and download as PDF.">Textos disponibles para lectura y descarga en PDF.</p>
+    </div>
+    <div class="plays" id="playsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== ACADEMIC ===== -->
+<section id="academica">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Epílogo" data-en="Epilogue">Epílogo</span><span class="ln"></span><span class="tag" data-es="Investigación" data-en="Research">Investigación</span></div>
+      <h2 class="sec-title" data-es="Producción académica" data-en="Academic work">Producción académica</h2>
+    </div>
+    <div class="acad rv">
+      <div class="acad-item">
+        <div class="yr">2016</div>
+        <div><h3 data-es="Cinematizando la escena" data-en="Cinematising the stage">Cinematizando la escena</h3><div class="src" data-es="Trasladación de elementos del lenguaje cinematográfico al teatral · Tesis de Magíster · Universidad de Chile" data-en="Transferring elements of cinematic language to the stage · Master's Thesis · University of Chile">Trasladación de elementos del lenguaje cinematográfico al teatral · Tesis de Magíster · Universidad de Chile</div></div>
+        <a class="dl" href="https://www.mabelmarin.org/_files/ugd/57b89e_1ad5773435f84bb188c8c6e4cd99a1d5.pdf" target="_blank" rel="noopener" data-es="Descargar" data-en="Download">Descargar</a>
+      </div>
+      <div class="acad-item">
+        <div class="yr">2019</div>
+        <div><h3 data-es="¿De qué hablamos cuando hablamos de Teatro Feminista?" data-en="What do we mean by Feminist Theatre?">¿De qué hablamos cuando hablamos de Teatro Feminista?</h3><div class="src" data-es="Una cuestión de perspectiva · Ponencia · Festival Internacional de Teatro Universitario UAEM, México" data-en="A matter of perspective · Conference paper · UAEM International University Theatre Festival, Mexico">Una cuestión de perspectiva · Ponencia · Festival Internacional de Teatro Universitario UAEM, México</div></div>
+        <a class="dl" href="https://www.mabelmarin.org/_files/ugd/57b89e_7e5d6271c3dc44b0b5dc21d15745073a.pdf" target="_blank" rel="noopener" data-es="Descargar" data-en="Download">Descargar</a>
+      </div>
+      <div class="acad-item">
+        <div class="yr">2012</div>
+        <div><h3 data-es="El actor y el realismo en la puesta en escena contemporánea" data-en="The actor and realism in contemporary staging">El actor y el realismo en la puesta en escena contemporánea</h3><div class="src" data-es="Teatro Posdramático, Dramaturgia del Espacio y Estudios de Performance · Trabajo Final de Graduación · Universidad Nacional" data-en="Postdramatic Theatre, Dramaturgy of Space and Performance Studies · Final Graduation Project · National University">Teatro Posdramático, Dramaturgia del Espacio y Estudios de Performance · Trabajo Final de Graduación · Universidad Nacional</div></div>
+        <a class="dl" href="https://www.mabelmarin.org/_files/ugd/57b89e_7c5185f40128459babce3171919ac6c4.pdf" target="_blank" rel="noopener" data-es="Descargar" data-en="Download">Descargar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="galeria" style="background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Telón" data-en="Curtain">Telón</span><span class="ln"></span><span class="tag" data-es="Galería" data-en="Gallery">Galería</span></div>
+      <h2 class="sec-title" data-es="Momentos" data-en="Moments">Momentos</h2>
+    </div>
+    <div class="gallery rv" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="act-label"><span class="num" data-es="Bis" data-en="Encore">Bis</span><span class="ln"></span><span class="tag" data-es="Contacto" data-en="Contact">Contacto</span></div>
+      <h2 class="sec-title" data-es="Escríbeme" data-en="Get in touch">Escríbeme</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info rv">
+        <div class="line"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11a7 7 0 0 1 14 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>San José, Costa Rica</span></div>
+        <div class="line"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5c0 8 7 15 15 15l1-3-4-2-2 2a13 13 0 0 1-6-6l2-2-2-4z"/></svg></span><a href="tel:+50688711037">+506 8871 1037</a></div>
+        <div class="line"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg></span><a href="mailto:mabelmarin86@gmail.com">mabelmarin86@gmail.com</a></div>
+        <div class="socials">
+          <a href="https://www.facebook.com/mabelmarin86/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9V7c0-1 .3-1.5 1.5-1.5H17V2.5h-2.5C11.6 2.5 11 4.3 11 6.2V9H8.5v3H11v9.5h3V12h2.3l.4-3H14z"/></svg></a>
+          <a href="https://www.instagram.com/yomabelita/?hl=es-la" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.2"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10 9.2v5.6l5-2.8z" fill="var(--bg-2)"/></svg></a>
+        </div>
+      </div>
+      <form class="rv rv-d1" id="contactForm" onsubmit="sendMail(event)">
+        <div class="row">
+          <input type="text" id="cf-name" placeholder="Tu nombre" data-es-ph="Tu nombre" data-en-ph="Your name" required />
+          <input type="email" id="cf-email" placeholder="Tu email" data-es-ph="Tu email" data-en-ph="Your email" required />
+        </div>
+        <input type="text" id="cf-subject" placeholder="Asunto" data-es-ph="Asunto" data-en-ph="Subject" />
+        <textarea id="cf-msg" placeholder="Escribe tu mensaje" data-es-ph="Escribe tu mensaje" data-en-ph="Write your message" required></textarea>
+        <button type="submit" class="btn btn-solid"><span data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span><span class="arr">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand">MABEL <b>MARÍN</b></a>
+    <p data-es="Directora · Actriz · Dramaturga · Costa Rica" data-en="Director · Actress · Playwright · Costa Rica">Directora · Actriz · Dramaturga · Costa Rica</p>
+    <p class="made">© <span id="yr"></span> Mabel Marín. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox" onclick="this.classList.remove('on')">
+  <span class="x">×</span><img id="lbImg" src="" alt="" />
+</div>
+
+<script>
+const DIRECTING=[
+{t:"Dulcinea del Toboso. ¿Herstoria?",yr:2020,by:"Catalina Murillo",co:"Teatro Nacional de Costa Rica",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_7fbb151b38db4a6dba00f7a6018f341f~mv2.jpeg/v1/crop/x_0,y_128,w_1023,h_755/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE.jpeg"},
+{t:"Irìria, La Niña Danta",yr:2019,by:"Mabel Marín",co:"BonusTeatro · PROARTES",g:"2020s",own:true,img:"https://static.wixstatic.com/media/57b89e_db7eae5015654d54884e702ca21bc72f~mv2.jpg/v1/crop/x_0,y_510,w_2000,h_1477/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE-IRIA-REDES.jpg"},
+{t:"Woolf",yr:2019,by:"Pamela Herrera",co:"Iniciativas Interdisciplinarias · CIDEA-UNA",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_4cf798ca7c914c3b9f92dc5d41f6c532~mv2.png/v1/crop/x_0,y_66,w_960,h_709/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/WOOLF-Redes%20Sociales.png"},
+{t:"Vértigo",yr:2018,by:"Jorgelina Cerritos",co:"Iniciativas Interdisciplinarias · CIDEA-UNA",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_f29f870ad8f64d6da1176d6e83dfd565~mv2.jpg/v1/crop/x_0,y_14,w_967,h_714/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/V%C3%A9rtigo%20Perfil.jpg"},
+{t:"Brutality",yr:2018,by:"Gustavo Ott",co:"Compañía Nacional de Teatro",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_2d8f076cc1df4930ad4f6e970354e331~mv2.png/v1/crop/x_0,y_125,w_960,h_709/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/brutality-fb04.png"},
+{t:"Duda",yr:2018,by:"John Patrick Shanley",co:"Teatro Espressivo",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_695cd39b88df474c8c60b112cc3498ec~mv2.jpg/v1/crop/x_0,y_999,w_1875,h_1384/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/Propuesta%201.jpg"},
+{t:"El Coordinador",yr:2017,by:"Benjamín Galemiri",co:"BonusTeatro · Compañía Nacional de Teatro",g:"2015s",own:false,img:"https://static.wixstatic.com/media/57b89e_19163fc925504032b38e2ebcf09825ae~mv2.jpg/v1/crop/x_0,y_317,w_3300,h_2437/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/Afiche_El%20Coordinador_final_11x17.jpg"},
+{t:"Del Polvo Soy",yr:2017,by:"Kyle Boza",co:"Teatro Nacional de Costa Rica",g:"2015s",own:false,img:"https://static.wixstatic.com/media/57b89e_0b1769985f244db5bf97766144e11c22~mv2.jpg/v1/crop/x_60,y_0,w_839,h_620/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/22046528_1966588133599250_89612599300357.jpg"},
+{t:"OFF-elia",yr:2017,by:"Cristhofer Angulo",co:"Teatro OFF-elia",g:"2015s",own:false,img:"https://static.wixstatic.com/media/57b89e_1d35eeeaa347484084701d923b0c5220~mv2.jpg/v1/crop/x_0,y_146,w_800,h_591/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/OFF-elia.jpg"},
+{t:"Some1 Like U",yr:2016,by:"Mabel Marín",co:"BonusTeatro · Compañía Nacional de Teatro",g:"2015s",own:true,img:"https://static.wixstatic.com/media/57b89e_c8ef3a2e52944d01b8aed5eb3277a6cd~mv2.jpg/v1/crop/x_0,y_0,w_3300,h_2437/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/Afiche.jpg"},
+{t:"Azul",yr:2015,by:"Mabel Marín",co:"Universidad de Chile",g:"2015s",own:true,img:"https://static.wixstatic.com/media/57b89e_ff72290d25234ff5a62fbc58ffb2d5c6~mv2.jpg/v1/crop/x_0,y_0,w_1984,h_1465/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/afiche%20final2.jpg"},
+{t:"Ovejas",yr:2013,by:"Versión libre · Martin Crimp",co:"BonusTeatro",g:"early",own:false,img:"https://static.wixstatic.com/media/57b89e_019e5b61f0c545debf5a8315b458eb7f~mv2.jpg/v1/crop/x_0,y_79,w_572,h_422/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/130904_WEB_Ovejas_11x17.jpg"},
+{t:"Pájaros Tristes",yr:2013,by:"Creación colectiva · dramaturgista M. Marín",co:"Marencos · Nosotros Producciones",g:"early",own:true,img:"https://static.wixstatic.com/media/57b89e_93ab5e7abc6b42d3b05ab91746706c8a~mv2.jpg/v1/crop/x_0,y_23,w_960,h_709/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/942113_10152829690110414_1408411734_n_jp.jpg"},
+{t:"El Último Juego",yr:2012,by:"Mabel Marín",co:"BonusTeatro · CNT · Centro Cultural de España",g:"early",own:true,img:"https://static.wixstatic.com/media/57b89e_b6bf3c502c284bed9934a4e88cf31212~mv2.jpg/v1/crop/x_0,y_474,w_3300,h_2437/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE_FINAL.jpg"},
+{t:"Proyectos Incompletos",yr:2012,by:"Ricardo Lobo",co:"BonusTeatro · Taller Nacional",g:"early",own:false,img:"https://static.wixstatic.com/media/57b89e_40ed3de16e714022bedc8755576a7213~mv2.jpg/v1/crop/x_0,y_1329,w_3299,h_2437/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/afiche.jpg"},
+{t:"Entre el Humo y la Lluvia",yr:2012,by:"Mabel Marín",co:"BonusTeatro",g:"early",own:true,img:"https://static.wixstatic.com/media/57b89e_3bc60d573e6741a5a855d9f6b1d22e3c~mv2.jpg/v1/crop/x_0,y_15,w_2592,h_1914/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/Afiche%20Entre%20el%20humo%20y%20la%20Lluvia_JPG.jpg"},
+{t:"Islas de Porfiado Amor",yr:2009,by:"Juan Radrigán",co:"BonusTeatro · Taller Nacional · Centro Cultural de España",g:"early",own:false,img:"https://static.wixstatic.com/media/57b89e_6fea37b69d0048ed9193cd0a406c6386~mv2.jpg/v1/crop/x_0,y_1691,w_4191,h_3095/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/afiche%20corregido%20punto%20copy.jpg"},
+{t:"Borrachos de Luna",yr:2008,by:"Juan Radrigán",co:"BonusTeatro",g:"early",own:false,img:"https://static.wixstatic.com/media/57b89e_851b5b27d2a5448a848579e17d61f761~mv2.jpg/v1/crop/x_0,y_419,w_1241,h_917/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/afiche%20Cafes%C3%B3n%20ultimas%20correciones_page-.jpg"}
+];
+const ACTING=[
+{yr:2016,t:"Some1 Like U",by:"de Mabel Marín",dir:"Dir. Mabel Marín",co:"BonusTeatro · Compañía Nacional de Teatro"},
+{yr:2014,t:"Presos",film:true,by:"Largometraje",dir:"Dir. Esteban Ramírez",co:"Cinetel (CR) · coproducción con Proyección Films (Colombia)"},
+{yr:2013,t:"Ovejas",by:"Versión libre de Fewer Emergencies · Martin Crimp",dir:"Dir. Mabel Marín",co:"BonusTeatro"},
+{yr:2013,t:"Pájaros Tristes",by:"Creación colectiva",dir:"Dir. Mabel Marín",co:"Marencos · Nosotros Producciones"},
+{yr:2011,t:"Hechos consumados",by:"de Juan Radrigán",dir:"Dir. Adolfo Albornoz",co:"BonusTeatro · Teatro Nacional"},
+{yr:2010,t:"Seis personajes en busca de autor",by:"de Luigi Pirandello",dir:"Codir. G. Zappelli y A. Albornoz",co:"Compañía Nacional de Teatro"},
+{yr:2009,t:"Forasteros",by:"de Sergi Belbel",dir:"Dir. Liubov Otto",co:"Teatro Pluie"},
+{yr:2009,t:"100 gramos",by:"de Janil Johnson",dir:"Dir. Gabrio Zappelli",co:"Proyecto Teatral Emergencias.3"},
+{yr:2009,t:"Ollas de presión",by:"de Amadeo Cordero",dir:"Dir. Adolfo Albornoz",co:"Proyecto Teatral Emergencias.3"},
+{yr:2008,t:"El largo adiós",by:"de Kyle Boza",dir:"Dir. Adolfo Albornoz",co:"Proyecto Teatral Emergencias.2"},
+{yr:2007,t:"Ojos Cerrados",by:"de Mabel Marín",dir:"Dir. Mabel Marín",co:"BonusTeatro"},
+{yr:2006,t:"La gorda gana",by:"de Madeleine George",dir:"Dir. Marialaura Salom",co:"Teatro Universitario"}
+];
+const PLAYS=[
+{t:"Irìria, La Niña Danta",yr:2019,pdf:"https://www.mabelmarin.org/_files/ugd/57b89e_8d2e400569a94ceb9953c2f1d15a4564.pdf",
+ es:"Una niña danta sufre los constantes ataques de los cazadores que diezman su clan. Por una premonición de su madre, debe enfrentar al jefe de los cazadores. En su huida cae en un mundo paralelo donde conoce a Airìri, su alter ego, quien le enseña el valor de luchar por lo que amamos a través del diálogo y no de la violencia.",
+ en:"A young tapir endures the relentless attacks of hunters decimating her clan. Following her mother's premonition, she must face the hunters' leader. In her flight she falls into a parallel world where she meets Airìri, her alter ego, who teaches her the value of fighting for what we love through dialogue rather than violence."},
+{t:"Some1 Like U",yr:2016,pdf:"https://www.mabelmarin.org/_files/ugd/57b89e_e8c7e54bad8d455ebdb31871e5a40feb.pdf",
+ es:"Iván y Jimena fueron pareja en la adolescencia. Ya adultos, se reencuentran durante la filmación de una película. Sus vidas avanzaron —él casado, ella madre— pero siguen enamorados y lamentan los errores que los separaron. La historia avanza entre flashbacks que revelan por qué su relación no funcionó.",
+ en:"Iván and Jimena were a couple as teenagers. Now adults, they reunite during a film shoot. Their lives have moved on —he is married, she is a mother— yet they remain in love and regret the mistakes that drove them apart. The story unfolds through flashbacks revealing why their relationship failed."},
+{t:"Entre el Humo y la Lluvia",yr:2012,pdf:"https://www.mabelmarin.org/_files/ugd/57b89e_0117aa0fe7dd4ba2b273f85665c38063.pdf",
+ es:"Tres seres humanos luchan por dominar ese nervio especial responsable del amor y el odio. Un hombre enamorado de dos mujeres, y dos mujeres enamoradas de él, se debaten entre decisiones postergadas y otras imposibles. Inspirada en la obra de Tennessee Williams, combina lo dulce y lo amargo del amor.",
+ en:"Three people struggle to master that special nerve responsible for love and hatred. A man in love with two women, and two women in love with him, wrestle with decisions long postponed and others impossible to make. Inspired by Tennessee Williams, it blends the sweet and the bitter of love."},
+{t:"Con un Beso Muero",yr:2010,pdf:"https://www.mabelmarin.org/_files/ugd/57b89e_a0ce9969aefc4c00bc0998a4cd678632.pdf",
+ es:"¿Y si la mayor historia de amor jamás contada fuera un engaño? La dramaturga reescribe la escena final de Romeo y Julieta, ahora encarnada en Manuel y Elena. En tiempo real, Manuel llega a la cripta, pero esta vez logra ver despertar a Elena. La tragedia ocurre igual, bajo circunstancias completamente distintas.",
+ en:"What if the greatest love story ever told were a deception? The playwright rewrites the final scene of Romeo and Juliet, now embodied in Manuel and Elena. In real time, Manuel reaches the crypt, but this time he sees Elena awaken. The tragedy still unfolds, under entirely different circumstances."},
+{t:"El Último Juego",yr:2010,pdf:"https://www.mabelmarin.org/_files/ugd/57b89e_9b186eea75b6431f82061bfd72691777.pdf",
+ es:"Marco y Coco son mejores amigos pese a la diferencia de edad. Tras una mejenga se cruzan con Javier y Carlitos; una vieja rivalidad termina cuando Carlitos se extravía en un cafetal. La búsqueda solo acrecienta miedos y desesperación hasta que la tragedia los encuentra. Dialoga con Marcos Ramírez y Cocorí de la literatura costarricense.",
+ en:"Marco and Coco are best friends despite their age gap. After a pickup match they cross paths with Javier and Carlitos; an old rivalry ends when Carlitos gets lost in a coffee field. The search only deepens fear and despair until tragedy finds them. The play converses with Marcos Ramírez and Cocorí from Costa Rican literature."},
+{t:"El Dolor de la Carne",yr:2008,pdf:"https://www.mabelmarin.org/_files/ugd/57b89e_d70d6b8e685c45188c9addad56d54797.pdf",
+ es:"Dos carniceros quedan atrapados en la carnicería donde vivieron un trágico incidente. El mayor insiste en continuar y olvidar; el joven, desencantado, se siente insatisfecho con la vida. La tensión crece hasta que el íntimo reconocimiento de la verdad abre una posible liberación para ambos.",
+ en:"Two butchers are trapped inside the shop where they lived through a tragic incident. The elder insists on carrying on and forgetting; the younger, disenchanted, feels dissatisfied with life. Tension rises until the intimate recognition of the truth opens a possible liberation for both."}
+];
+const GALLERY=[
+"https://static.wixstatic.com/media/57b89e_6499bb99f1b9412fa465c91ac6be25af~mv2.jpg/v1/fill/w_737,h_554,fp_0.39_0.29,q_90,enc_avif,quality_auto/57b89e_6499bb99f1b9412fa465c91ac6be25af~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_2951b5027e05460aa65d38b6a2ce29e0~mv2.jpg/v1/fill/w_548,h_822,q_90,enc_avif,quality_auto/57b89e_2951b5027e05460aa65d38b6a2ce29e0~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_40aa8710a44a4bc7bed9e6ad2ae165b8~mv2.jpg/v1/fill/w_720,h_540,fp_0.63_0.24,q_90,enc_avif,quality_auto/57b89e_40aa8710a44a4bc7bed9e6ad2ae165b8~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_9571f18d89aa4a9a9371893cafbcdc44~mv2.jpg/v1/fill/w_546,h_546,q_90,enc_avif,quality_auto/57b89e_9571f18d89aa4a9a9371893cafbcdc44~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_de248f14c917493890c110f8c5a9ec2a~mv2.jpg/v1/fill/w_720,h_541,fp_0.38_0.46,q_90,enc_avif,quality_auto/57b89e_de248f14c917493890c110f8c5a9ec2a~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_70c1312df2624f8b88ee7a9ddc551948~mv2.jpg/v1/fill/w_548,h_758,q_90,enc_avif,quality_auto/57b89e_70c1312df2624f8b88ee7a9ddc551948~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_91dedc86f2724578a2c0454db742274a~mv2.jpg/v1/fill/w_720,h_540,fp_0.53_0.46,q_90,enc_avif,quality_auto/57b89e_91dedc86f2724578a2c0454db742274a~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_f64e0b914a734bf8a65a6e0518255955~mv2.jpg/v1/fill/w_546,h_818,q_90,enc_avif,quality_auto/57b89e_f64e0b914a734bf8a65a6e0518255955~mv2.jpg",
+"https://static.wixstatic.com/media/57b89e_655801084ffa4e859f13858c002d151d~mv2.jpg/v1/fill/w_720,h_541,fp_0.65_0.28,q_90,enc_avif,quality_auto/57b89e_655801084ffa4e859f13858c002d151d~mv2.jpg"
+];
+
+let LANG='es',curFilter='all';
+function setLang(l){
+  LANG=l;document.documentElement.lang=l;
+  document.getElementById('es').classList.toggle('active',l==='es');
+  document.getElementById('en').classList.toggle('active',l==='en');
+  document.querySelectorAll('[data-es]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v});
+  document.querySelectorAll('[data-es-ph]').forEach(el=>{const v=el.getAttribute('data-'+l+'-ph');if(v)el.placeholder=v});
+  render();buildWA&&0;
+}
+function render(){
+  const tagTxt=LANG==='es'?'Texto propio':'Own text';
+  document.getElementById('worksGrid').innerHTML=DIRECTING.filter(w=>{
+    if(curFilter==='all')return true;if(curFilter==='own')return w.own;return w.g===curFilter;
+  }).map(w=>`<div class="work"><div class="work-img"><span class="yr">${w.yr}</span><img loading="lazy" src="${w.img}" alt="${w.t}"></div><div class="work-body"><h3>${w.t}</h3><div class="work-meta"><span class="by">${w.by}</span><br>${w.co}</div>${w.own?`<span class="tag">${tagTxt}</span>`:''}</div></div>`).join('');
+  document.getElementById('actingTimeline').innerHTML=ACTING.map(a=>`<div class="tl-item"><div class="${a.film?'tl-film':''}">${a.film?`<div class="badge">${LANG==='es'?'Cine':'Film'}</div>`:''}<div class="yr">${a.yr}</div><h3>${a.t}</h3><p><span class="by">${a.by}</span> · ${a.dir} · ${a.co}</p></div></div>`).join('');
+  const dlTxt=LANG==='es'?'Leer / Descargar PDF':'Read / Download PDF';
+  document.getElementById('playsGrid').innerHTML=PLAYS.map(p=>`<div class="play"><div class="play-top"><h3>${p.t}</h3><span class="yr">${p.yr}</span></div><p>${p[LANG]}</p><a class="dl" href="${p.pdf}" target="_blank" rel="noopener">${dlTxt} →</a></div>`).join('');
+  document.getElementById('gallery').innerHTML=GALLERY.map(g=>`<figure><img loading="lazy" src="${g}" alt="Mabel Marín" onclick="openLB('${g}')"></figure>`).join('');
+}
+document.getElementById('dirFilters').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('#dirFilters button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');curFilter=e.target.dataset.f;render();
+  document.querySelectorAll('#worksGrid .work').forEach((el,i)=>{el.style.opacity=0;el.style.transform='translateY(22px)';setTimeout(()=>{el.style.transition='.55s cubic-bezier(.16,1,.3,1)';el.style.opacity=1;el.style.transform='none'},i*45)});
+});
+function sendMail(e){
+  e.preventDefault();
+  const n=document.getElementById('cf-name').value,em=document.getElementById('cf-email').value;
+  const s=document.getElementById('cf-subject').value||(LANG==='es'?'Contacto desde el sitio web':'Website contact');
+  const m=document.getElementById('cf-msg').value;
+  window.location.href=`mailto:mabelmarin86@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(m+'\n\n— '+n+' ('+em+')')}`;
+}
+function openLB(src){document.getElementById('lbImg').src=src;document.getElementById('lightbox').classList.add('on')}
+
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)});
+
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});
+
+function countUp(el,target){
+  const dur=1400,st=performance.now();
+  function step(now){const p=Math.min((now-st)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+}
+const statIO=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){countUp(en.target,+en.target.dataset.count);statIO.unobserve(en.target)}}),{threshold:.6});
+
+const spot=document.getElementById('spot');
+window.addEventListener('mousemove',e=>{spot.classList.add('on');spot.style.left=e.clientX+'px';spot.style.top=e.clientY+'px'});
+
+let pf=0;
+window.addEventListener('scroll',()=>{
+  if(pf)return;pf=requestAnimationFrame(()=>{
+    const y=window.scrollY,img=document.querySelector('.hero-portrait img');
+    if(img&&y<900)img.style.transform=`scale(1) translateY(${y*0.06}px)`;
+    pf=0;
+  });
+});
+
+function startHero(){
+  ['h1','h2'].forEach(id=>document.getElementById(id).classList.add('go'));
+  ['hroles','hloc','hcta','hport','shint'].forEach(id=>document.getElementById(id).classList.add('go'));
+}
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+render();
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-count]').forEach(el=>statIO.observe(el));
+
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(reduce){startHero();}
+else{
+  setTimeout(startHero,2600);
+  setTimeout(()=>document.getElementById('curtain').classList.add('done'),4100);
+}
+</script>
+</body>
+</html>
