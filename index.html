@@ -29,7 +29,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Mabel Marín","jobTitle":"Directora, Actriz y Dramaturga","nationality":"Costa Rica","url":"https://www.mabelmarin.org","email":"mabelmarin86@gmail.com","telephone":"+50688711037","address":{"@type":"PostalAddress","addressLocality":"San José","addressCountry":"CR"},"sameAs":["https://www.facebook.com/mabelmarin86/","https://www.instagram.com/yomabelita/","https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A"],"award":"Premio Nacional de Teatro a Mejor Dirección (2012 y 2020)"}
+{"@context":"https://schema.org","@type":"Person","name":"Mabel Marín","alternateName":"Mabel Marín Ureña","jobTitle":["Directora teatral","Actriz","Dramaturga","Profesora de Arte Escénico"],"nationality":"Costa Rica","url":"https://www.mabelmarin.org","image":"https://www.mabelmarin.org/assets/img/mabel-portrait.jpg","email":"mabelmarin86@gmail.com","telephone":"+50688711037","address":{"@type":"PostalAddress","addressLocality":"San José","addressCountry":"CR"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Kent"},{"@type":"CollegeOrUniversity","name":"Universidad de Chile"},{"@type":"CollegeOrUniversity","name":"Universidad Nacional de Costa Rica"},{"@type":"CollegeOrUniversity","name":"Universidad de Costa Rica"}],"award":["Premio Nacional de Teatro a Mejor Dirección (2012)","Premio Nacional de Teatro a Mejor Dirección (2020)","Ganadora del Concurso Nacional de Dramaturgia 2025 (Teatro Nacional de Costa Rica)"],"sameAs":["https://www.instagram.com/mabelmarin.cr","https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A"]}
 </script>
 
 <style>
@@ -79,6 +79,8 @@ body::before{
   box-shadow:inset 0 0 240px 60px rgba(0,0,0,.7)}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
+/* Bloque 5 — visible keyboard focus on all interactive elements (WCAG 2.4.7) */
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;border-radius:2px}
 .wrap{max-width:1200px;margin:0 auto;padding:0 30px;position:relative;z-index:1}
 
 /* spotlight cursor */
@@ -385,14 +387,15 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
     <a href="#dramaturgia" data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</a>
     <a href="#academica" data-es="Académico" data-en="Academic">Académico</a>
     <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
-    <div class="lang-toggle">
-      <button id="es" class="active" onclick="setLang('es')">ES</button>
-      <button id="en" onclick="setLang('en')">EN</button>
+    <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+      <button id="es" class="active" onclick="setLang('es')" aria-pressed="true" lang="es">ES</button>
+      <button id="en" onclick="setLang('en')" aria-pressed="false" lang="en">EN</button>
     </div>
   </div>
   <button class="nav-toggle" aria-label="Menú" onclick="var n=document.getElementById('navLinks');n.style.display=(getComputedStyle(n).display==='none')?'flex':'none'">≡</button>
 </nav>
 
+<main id="main">
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
   <div class="wrap hero-grid">
@@ -411,7 +414,7 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
     </div>
     <div class="hero-portrait" id="hport">
       <div class="frame"></div>
-      <div class="ph"><img src="https://static.wixstatic.com/media/57b89e_7967102875054d549c7719a4d4820ecf~mv2.jpg/v1/crop/x_0,y_146,w_1560,h_1366/fill/w_760,h_950,al_c,q_85,enc_avif,quality_auto/_DSC0588_JPG.jpg" alt="Retrato de Mabel Marín" /></div>
+      <div class="ph"><img src="https://static.wixstatic.com/media/57b89e_7967102875054d549c7719a4d4820ecf~mv2.jpg/v1/crop/x_0,y_146,w_1560,h_1366/fill/w_760,h_950,al_c,q_85,enc_avif,quality_auto/_DSC0588_JPG.jpg" alt="Retrato de Mabel Marín" fetchpriority="high" /></div>
     </div>
   </div>
   <div class="scroll-hint" id="shint" data-es="Inicia la función" data-en="The show begins">Inicia la función</div>
@@ -593,6 +596,7 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -678,6 +682,8 @@ function setLang(l){
   LANG=l;document.documentElement.lang=l;
   document.getElementById('es').classList.toggle('active',l==='es');
   document.getElementById('en').classList.toggle('active',l==='en');
+  document.getElementById('es').setAttribute('aria-pressed',l==='es');
+  document.getElementById('en').setAttribute('aria-pressed',l==='en');
   document.querySelectorAll('[data-es]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v});
   document.querySelectorAll('[data-es-ph]').forEach(el=>{const v=el.getAttribute('data-'+l+'-ph');if(v)el.placeholder=v});
   render();buildWA&&0;
