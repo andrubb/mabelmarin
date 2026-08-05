@@ -26,6 +26,7 @@
 <link rel="preload" as="image" href="assets/img/logo-mark.png" />
 <link rel="preload" as="image" href="assets/img/logo-full.png" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Mabel Marín","jobTitle":"Directora, Actriz y Dramaturga","nationality":"Costa Rica","url":"https://www.mabelmarin.org","email":"mabelmarin86@gmail.com","telephone":"+50688711037","address":{"@type":"PostalAddress","addressLocality":"San José","addressCountry":"CR"},"sameAs":["https://www.facebook.com/mabelmarin86/","https://www.instagram.com/yomabelita/","https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A"],"award":"Premio Nacional de Teatro a Mejor Dirección (2012 y 2020)"}
@@ -311,6 +312,11 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 .lb.on{display:flex;animation:fadeIn .3s}
 .lb img{max-width:90vw;max-height:88vh;object-fit:contain;filter:none}
 .lb .x{position:absolute;top:26px;right:32px;color:var(--ink);font-size:2rem;cursor:pointer;font-family:var(--serif)}
+
+/* ===== Bloque 4 — scroll FX helpers ===== */
+.award-rule{display:block;width:120px;max-width:62%;height:4px;margin-top:14px;overflow:visible}
+.award-rule line{stroke:var(--gold-bright);stroke-width:2;stroke-linecap:round}
+.disc .rn{will-change:transform}
 
 .rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
 .rv.in{opacity:1;transform:none}
@@ -768,7 +774,72 @@ function initIntro(){
     .add(startHero,2.3);
   skip.addEventListener('click',()=>{tl.kill();finish();},{once:true});
 }
-if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initIntro);}else{initIntro();}
+/* ===== Scroll animations (Bloque 4): ScrollTrigger reveals / scrub / parallax.
+   0 pins (all reveals & scrubs); guarded on plugin availability; off under reduced motion.
+   Uses from() so a missing plugin or reduced-motion just leaves content visible. ===== */
+function initScrollFX(){
+  if(!window.gsap || !window.ScrollTrigger) return;   // no plugin -> .rv/IntersectionObserver reveals stay as-is
+  gsap.registerPlugin(ScrollTrigger);
+  const takeOver=el=>{ if(!el)return; io.unobserve(el); el.classList.remove('rv','rv-d1','rv-d2','rv-d3','in'); };
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    // 4.1 Acto I — formation list illuminates item by item, tied to real scroll (scrub)
+    const creds=document.querySelector('#about .creds');
+    if(creds){
+      takeOver(creds);
+      gsap.from(gsap.utils.toArray('#about .creds .cred'),{autoAlpha:.3,duration:1,ease:'none',stagger:.4,
+        scrollTrigger:{trigger:creds,start:'top 80%',end:'bottom 62%',scrub:true}});
+    }
+    // 4.1 bio — block-by-block reveal (line-by-line feel; true per-line would need SplitText)
+    const bio=document.querySelector('#about .about-text');
+    if(bio){
+      takeOver(bio);
+      gsap.from(bio.children,{yPercent:16,autoAlpha:0,duration:.7,stagger:.14,ease:'power2.out',
+        scrollTrigger:{trigger:bio,start:'top 78%'}});
+    }
+    // 4.2 Intermedio — award cards stagger in; a thin rule draws under each year
+    const awards=gsap.utils.toArray('.awards .award');
+    awards.forEach(takeOver);
+    awards.forEach(a=>{
+      const yr=a.querySelector('.yr');
+      if(yr && !a.querySelector('.award-rule')){
+        const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.setAttribute('class','award-rule'); svg.setAttribute('viewBox','0 0 120 4'); svg.setAttribute('aria-hidden','true');
+        const ln=document.createElementNS('http://www.w3.org/2000/svg','line');
+        ln.setAttribute('x1','1'); ln.setAttribute('y1','2'); ln.setAttribute('x2','119'); ln.setAttribute('y2','2');
+        svg.appendChild(ln); yr.insertAdjacentElement('afterend',svg);
+      }
+    });
+    if(awards.length){
+      ScrollTrigger.batch(awards,{start:'top 84%',
+        onEnter:b=>gsap.from(b,{y:34,autoAlpha:0,duration:.7,stagger:.15,ease:'power2.out',overwrite:true})});
+    }
+    gsap.utils.toArray('.award-rule line').forEach(ln=>{
+      const len=ln.getTotalLength?ln.getTotalLength():118;
+      gsap.set(ln,{strokeDasharray:len,strokeDashoffset:len});
+      gsap.to(ln,{strokeDashoffset:0,duration:.9,ease:'power2.out',
+        scrollTrigger:{trigger:ln.closest('.award'),start:'top 76%'}});
+    });
+    // 4.3 Repertorio — the four roman numerals get subtle depth parallax
+    gsap.utils.toArray('.disc .rn').forEach((rn,i)=>{
+      gsap.to(rn,{yPercent:(i%2?-1:1)*(10+i*4),ease:'none',
+        scrollTrigger:{trigger:'.disc-grid',start:'top bottom',end:'bottom top',scrub:true}});
+    });
+    // 4.4 Actos III/IV — stable lists stagger in on scroll via batch (modern grid pattern)
+    ['#actingTimeline .tl-item','#playsGrid .play'].forEach(sel=>{
+      const items=gsap.utils.toArray(sel); if(!items.length)return;
+      ScrollTrigger.batch(items,{start:'top 88%',
+        onEnter:b=>gsap.from(b,{y:30,autoAlpha:0,duration:.6,stagger:.09,ease:'power2.out',overwrite:true})});
+    });
+    // 4.4 Acto II — works re-render on filter, so reveal current children once; filter handler owns later transitions
+    const worksGrid=document.getElementById('worksGrid');
+    if(worksGrid){
+      ScrollTrigger.create({trigger:worksGrid,start:'top 86%',once:true,
+        onEnter:()=>gsap.from(worksGrid.querySelectorAll('.work'),{y:30,autoAlpha:0,duration:.6,stagger:.07,ease:'power2.out'})});
+    }
+  });
+}
+function boot(){ initIntro(); initScrollFX(); }
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
 </script>
 </body>
 </html>
