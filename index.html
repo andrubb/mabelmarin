@@ -204,13 +204,14 @@ section{padding:130px 0;position:relative}
 /* ===== AWARDS ===== */
 .awards{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
 .awards::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 50% 0%,rgba(201,138,75,.12),transparent 70%)}
-.awards-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .award{border:1px solid var(--line);padding:50px 42px;position:relative;background:radial-gradient(420px 220px at 50% 0%,rgba(47,99,80,.07),transparent);transition:transform .5s,border-color .5s}
 .award:hover{transform:translateY(-8px);border-color:var(--gold-bright)}
 .award .laurel{color:var(--gold-bright);font-size:1.5rem;letter-spacing:.3em;margin-bottom:20px}
 .award .yr{font-family:var(--display);font-size:3.8rem;color:var(--gold-bright);line-height:1}
 .award h3{font-family:var(--serif);font-size:1.65rem;font-weight:500;margin:12px 0 8px;font-style:italic}
 .award p{color:var(--ink-mute);font-size:.92rem;letter-spacing:.02em}
+.award .work{display:block;margin-top:16px;font-family:var(--serif);font-style:italic;font-size:.98rem;color:var(--ink-soft);line-height:1.4}
 
 /* ===== DISCIPLINES ===== */
 .disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
@@ -400,15 +401,15 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-eyebrow" data-es="Currículum · Teatro de Costa Rica" data-en="Curriculum · Theatre of Costa Rica">Currículum · Teatro de Costa Rica</div>
+      <div class="hero-eyebrow" data-es="Pasión · Teatro · Costa Rica" data-en="Passion · Theatre · Costa Rica">Pasión · Teatro · Costa Rica</div>
       <h1>
         <span class="ln" id="h1"><span>Mabel</span></span>
         <span class="ln" id="h2"><span>Marín</span></span>
       </h1>
       <div class="hero-roles" id="hroles" data-es="Directora · Actriz · Dramaturga" data-en="Director · Actress · Playwright">Directora · Actriz · Dramaturga</div>
-      <div class="hero-loc" id="hloc" data-es="Doble Premio Nacional de Teatro a Mejor Dirección" data-en="Two-time National Theatre Award for Best Direction">Doble Premio Nacional de Teatro a Mejor Dirección</div>
+      <div class="hero-loc" id="hloc" data-es="Doble Premio Nacional de Teatro a Mejor Dirección<br>Ganadora Concurso Nacional de Dramaturgia" data-en="Two-time National Theatre Award for Best Direction<br>Winner, National Playwriting Competition">Doble Premio Nacional de Teatro a Mejor Dirección<br>Ganadora Concurso Nacional de Dramaturgia</div>
       <div class="hero-cta" id="hcta">
-        <a href="https://www.mabelmarin.org/_files/ugd/57b89e_cb223a12edb54937a5a6031bdb375c7e.pdf" target="_blank" rel="noopener" class="btn btn-solid"><span data-es="Descargar currículum" data-en="Download CV">Descargar currículum</span><span class="arr">→</span></a>
+        <a href="assets/pdf/CV-Mabel-Marin-2026.pdf" target="_blank" rel="noopener" class="btn btn-solid"><span data-es="Descargar currículum" data-en="Download CV">Descargar currículum</span><span class="arr">→</span></a>
         <a href="#direccion" class="btn btn-ghost"><span data-es="Ver trayectoria" data-en="View work">Ver trayectoria</span></a>
       </div>
     </div>
@@ -423,10 +424,10 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 <!-- ===== STATS ===== -->
 <div class="stats">
   <div class="wrap stats-grid">
-    <div class="stat"><div class="num" data-count="20">0</div><div class="lbl" data-es="Obras dirigidas" data-en="Plays directed">Obras dirigidas</div></div>
-    <div class="stat"><div class="num" data-count="9">0</div><div class="lbl" data-es="Piezas escritas" data-en="Plays written">Piezas escritas</div></div>
-    <div class="stat"><div class="num" data-count="2">0</div><div class="lbl" data-es="Premios Nacionales" data-en="National Awards">Premios Nacionales</div></div>
-    <div class="stat"><div class="num"><span class="pre">+</span><span data-count="18">0</span></div><div class="lbl" data-es="Años en escena" data-en="Years on stage">Años en escena</div></div>
+    <div class="stat"><div class="num" data-count="24">0</div><div class="lbl" data-es="Obras dirigidas" data-en="Plays directed">Obras dirigidas</div></div>
+    <div class="stat"><div class="num" data-count="13">0</div><div class="lbl" data-es="Piezas escritas" data-en="Plays written">Piezas escritas</div></div>
+    <div class="stat"><div class="num" data-count="3">0</div><div class="lbl" data-es="Premios Nacionales" data-en="National Awards">Premios Nacionales</div></div>
+    <div class="stat"><div class="num"><span class="pre">+</span><span data-count="20">0</span></div><div class="lbl" data-es="Años en escena" data-en="Years on stage">Años en escena</div></div>
   </div>
 </div>
 
@@ -440,14 +441,14 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
     <div class="about-grid">
       <div class="about-text rv">
         <p class="lead" data-es="Actriz, directora, dramaturga y profesora de teatro costarricense." data-en="Costa Rican actress, director, playwright and theatre professor.">Actriz, directora, dramaturga y profesora de teatro costarricense.</p>
-        <p data-es="A lo largo de su carrera ha actuado en múltiples espectáculos y ha <b>dirigido veinte obras de teatro</b>. Ha escrito <b>nueve piezas teatrales</b>, de las cuales cuatro han sido publicadas y ocho estrenadas." data-en="Throughout her career she has performed in numerous productions and has <b>directed twenty plays</b>. She has written <b>nine theatrical works</b>, four of them published and eight premiered.">A lo largo de su carrera ha actuado en múltiples espectáculos y ha <b>dirigido veinte obras de teatro</b>. Ha escrito <b>nueve piezas teatrales</b>, de las cuales cuatro han sido publicadas y ocho estrenadas.</p>
+        <p data-es="A lo largo de su carrera ha participado como actriz en distintos espectáculos y ha <b>dirigido 24 obras</b>. Ha escrito <b>13 piezas teatrales</b> de las cuales cinco han sido publicadas y todas han sido estrenadas." data-en="Throughout her career she has performed as an actress in various productions and has <b>directed 24 plays</b>. She has written <b>13 theatrical works</b>, five of them published and all premiered.">A lo largo de su carrera ha participado como actriz en distintos espectáculos y ha <b>dirigido 24 obras</b>. Ha escrito <b>13 piezas teatrales</b> de las cuales cinco han sido publicadas y todas han sido estrenadas.</p>
         <p data-es="Actualmente es profesora en la Escuela de Arte Escénico de la Universidad Nacional de Costa Rica, y cursa su <b>Doctorado en la Universidad de Kent</b>, Inglaterra." data-en="She currently teaches at the School of Performing Arts of the National University of Costa Rica, and is pursuing her <b>doctorate at the University of Kent</b>, England.">Actualmente es profesora en la Escuela de Arte Escénico de la Universidad Nacional de Costa Rica, y cursa su <b>Doctorado en la Universidad de Kent</b>, Inglaterra.</p>
       </div>
       <div class="creds rv rv-d1">
-        <div class="cred"><span class="yr" data-es="En curso" data-en="Current">En curso</span><span class="d"><b data-es="Doctorado en Artes Escénicas" data-en="Doctorate in Performing Arts">Doctorado en Artes Escénicas</b><span data-es="Universidad de Kent, Inglaterra" data-en="University of Kent, England">Universidad de Kent, Inglaterra</span></span></div>
+        <div class="cred"><span class="yr" data-es="En curso" data-en="Current">En curso</span><span class="d"><b data-es="Doctorado en Drama" data-en="Doctorate in Drama">Doctorado en Drama</b><span data-es="Universidad de Kent, Inglaterra" data-en="University of Kent, England">Universidad de Kent, Inglaterra</span></span></div>
         <div class="cred"><span class="yr">2016</span><span class="d"><b data-es="Magíster en Dirección Teatral" data-en="Master in Theatre Directing">Magíster en Dirección Teatral</b><span data-es="Universidad de Chile" data-en="University of Chile">Universidad de Chile</span></span></div>
         <div class="cred"><span class="yr">2012</span><span class="d"><b data-es="Licenciatura en Artes Escénicas" data-en="Degree in Performing Arts">Licenciatura en Artes Escénicas</b><span data-es="Universidad Nacional de Costa Rica" data-en="National University of Costa Rica">Universidad Nacional de Costa Rica</span></span></div>
-        <div class="cred"><span class="yr" data-es="Bach." data-en="B.A.">Bach.</span><span class="d"><b data-es="Bachillerato en Artes Dramáticas" data-en="Bachelor in Dramatic Arts">Bachillerato en Artes Dramáticas</b><span data-es="Universidad de Costa Rica" data-en="University of Costa Rica">Universidad de Costa Rica</span></span></div>
+        <div class="cred"><span class="yr" data-es="2009" data-en="2009">2009</span><span class="d"><b data-es="Bachillerato en Artes Dramáticas" data-en="Bachelor in Dramatic Arts">Bachillerato en Artes Dramáticas</b><span data-es="Universidad de Costa Rica" data-en="University of Costa Rica">Universidad de Costa Rica</span></span></div>
       </div>
     </div>
   </div>
@@ -459,12 +460,13 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
     <div class="wrap">
       <div class="sec-head rv" style="margin-bottom:48px">
         <div class="act-label"><span class="num" data-es="Intermedio" data-en="Interlude">Intermedio</span><span class="ln"></span><span class="tag" data-es="Reconocimientos" data-en="Recognition">Reconocimientos</span></div>
-        <h2 class="sec-title" data-es="Premio Nacional de Teatro" data-en="National Theatre Award">Premio Nacional de Teatro</h2>
-        <p class="sec-sub" data-es="Doble galardonada a Mejor Dirección por el Ministerio de Cultura y Juventud de Costa Rica." data-en="Twice awarded Best Direction by the Ministry of Culture and Youth of Costa Rica.">Doble galardonada a Mejor Dirección por el Ministerio de Cultura y Juventud de Costa Rica.</p>
+        <h2 class="sec-title" data-es="Reconocimientos" data-en="Recognition">Reconocimientos</h2>
+        <p class="sec-sub" data-es="Dos Premios Nacionales de Teatro a Mejor Dirección (Ministerio de Cultura y Juventud) y el Concurso Nacional de Dramaturgia 2025 (Teatro Nacional de Costa Rica)." data-en="Two National Theatre Awards for Best Direction (Ministry of Culture and Youth) and the 2025 National Playwriting Competition (National Theatre of Costa Rica).">Dos Premios Nacionales de Teatro a Mejor Dirección (Ministerio de Cultura y Juventud) y el Concurso Nacional de Dramaturgia 2025 (Teatro Nacional de Costa Rica).</p>
       </div>
       <div class="awards-grid">
-        <div class="award rv"><div class="laurel">❦</div><div class="yr">2020</div><h3 data-es="Mejor Dirección" data-en="Best Direction">Mejor Dirección</h3><p data-es="Premio Nacional de Teatro · Ministerio de Cultura y Juventud" data-en="National Theatre Award · Ministry of Culture and Youth">Premio Nacional de Teatro · Ministerio de Cultura y Juventud</p></div>
-        <div class="award rv rv-d1"><div class="laurel">❦</div><div class="yr">2012</div><h3 data-es="Mejor Dirección" data-en="Best Direction">Mejor Dirección</h3><p data-es="Premio Nacional de Teatro · Ministerio de Cultura y Juventud" data-en="National Theatre Award · Ministry of Culture and Youth">Premio Nacional de Teatro · Ministerio de Cultura y Juventud</p></div>
+        <div class="award rv"><div class="laurel">❦</div><div class="yr">2025</div><h3 data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</h3><p data-es="Concurso Nacional de Dramaturgia · Teatro Nacional de Costa Rica" data-en="National Playwriting Competition · National Theatre of Costa Rica">Concurso Nacional de Dramaturgia · Teatro Nacional de Costa Rica</p><span class="work" data-es="Por la obra «La Mujer y el Esqueleto»" data-en="For the play “La Mujer y el Esqueleto”">Por la obra «La Mujer y el Esqueleto»</span></div>
+        <div class="award rv rv-d1"><div class="laurel">❦</div><div class="yr">2020</div><h3 data-es="Mejor Dirección" data-en="Best Direction">Mejor Dirección</h3><p data-es="Premio Nacional de Teatro · Ministerio de Cultura y Juventud" data-en="National Theatre Award · Ministry of Culture and Youth">Premio Nacional de Teatro · Ministerio de Cultura y Juventud</p><span class="work" data-es="Por la obra «Dulcinea del Toboso (Herstoria)»" data-en="For the play “Dulcinea del Toboso (Herstoria)”">Por la obra «Dulcinea del Toboso (Herstoria)»</span></div>
+        <div class="award rv rv-d2"><div class="laurel">❦</div><div class="yr">2012</div><h3 data-es="Mejor Dirección" data-en="Best Direction">Mejor Dirección</h3><p data-es="Premio Nacional de Teatro · Ministerio de Cultura y Juventud" data-en="National Theatre Award · Ministry of Culture and Youth">Premio Nacional de Teatro · Ministerio de Cultura y Juventud</p><span class="work" data-es="Por las obras «El Último Juego», «Entre el Humo y la Lluvia» y «Proyectos Incompletos»" data-en="For the plays “El Último Juego,” “Entre el Humo y la Lluvia” and “Proyectos Incompletos”">Por las obras «El Último Juego», «Entre el Humo y la Lluvia» y «Proyectos Incompletos»</span></div>
       </div>
     </div>
   </section>
@@ -475,12 +477,12 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
   <div class="wrap">
     <div class="sec-head rv">
       <div class="act-label"><span class="num" data-es="Repertorio" data-en="Repertoire">Repertorio</span><span class="ln"></span><span class="tag" data-es="Disciplinas" data-en="Disciplines">Disciplinas</span></div>
-      <h2 class="sec-title" data-es="Cuatro oficios, una misma escena" data-en="Four crafts, one stage">Cuatro oficios, una misma escena</h2>
+      <h2 class="sec-title" data-es="Cuatro oficios, una misma pasión" data-en="Four crafts, one passion">Cuatro oficios, una misma pasión</h2>
     </div>
     <div class="disc-grid">
-      <div class="disc rv"><div class="rn">I</div><h3 data-es="Dirección" data-en="Directing">Dirección</h3><p data-es="Veinte montajes para teatros nacionales, compañías y festivales." data-en="Twenty productions for national theatres, companies and festivals.">Veinte montajes para teatros nacionales, compañías y festivales.</p></div>
-      <div class="disc rv rv-d1"><div class="rn">II</div><h3 data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</h3><p data-es="Nueve piezas escritas; cuatro publicadas y ocho estrenadas." data-en="Nine plays written; four published and eight premiered.">Nueve piezas escritas; cuatro publicadas y ocho estrenadas.</p></div>
-      <div class="disc rv rv-d2"><div class="rn">III</div><h3 data-es="Actuación" data-en="Acting">Actuación</h3><p data-es="Interpretación en teatro y cine a lo largo de dos décadas." data-en="Performance in theatre and film across two decades.">Interpretación en teatro y cine a lo largo de dos décadas.</p></div>
+      <div class="disc rv"><div class="rn">I</div><h3 data-es="Dirección" data-en="Directing">Dirección</h3><p data-es="24 montajes para teatros nacionales, compañías y festivales." data-en="24 productions for national theatres, companies and festivals.">24 montajes para teatros nacionales, compañías y festivales.</p></div>
+      <div class="disc rv rv-d1"><div class="rn">II</div><h3 data-es="Dramaturgia" data-en="Playwriting">Dramaturgia</h3><p data-es="13 piezas escritas; cinco publicadas y todas estrenadas." data-en="13 plays written; five published and all premiered.">13 piezas escritas; cinco publicadas y todas estrenadas.</p></div>
+      <div class="disc rv rv-d2"><div class="rn">III</div><h3 data-es="Actuación" data-en="Acting">Actuación</h3><p data-es="Interpretación en diversos proyectos artísticos a lo largo de dos décadas." data-en="Performance across diverse artistic projects over two decades.">Interpretación en diversos proyectos artísticos a lo largo de dos décadas.</p></div>
       <div class="disc rv rv-d3"><div class="rn">IV</div><h3 data-es="Docencia" data-en="Teaching">Docencia</h3><p data-es="Profesora e investigadora en artes escénicas, UNA." data-en="Professor and researcher in performing arts, UNA.">Profesora e investigadora en artes escénicas, UNA.</p></div>
     </div>
   </div>
@@ -491,7 +493,7 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
   <div class="wrap">
     <div class="sec-head rv">
       <div class="act-label"><span class="num" data-es="Acto II" data-en="Act II">Acto II</span><span class="ln"></span><span class="tag" data-es="Dirección" data-en="Directing">Dirección</span></div>
-      <h2 class="sec-title" data-es="Veinte montajes en escena" data-en="Twenty productions staged">Veinte montajes en escena</h2>
+      <h2 class="sec-title" data-es="24 montajes en escena" data-en="24 productions staged">24 montajes en escena</h2>
       <p class="sec-sub" data-es="Trayectoria como directora, de 2008 a 2020." data-en="Her path as a director, from 2008 to 2020.">Trayectoria como directora, de 2008 a 2020.</p>
     </div>
     <div class="filters rv" id="dirFilters">
@@ -570,7 +572,7 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 <section id="contacto" class="contact">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="act-label"><span class="num" data-es="Bis" data-en="Encore">Bis</span><span class="ln"></span><span class="tag" data-es="Contacto" data-en="Contact">Contacto</span></div>
+      <div class="act-label"><span class="num" data-es="Camerino" data-en="Green Room">Camerino</span><span class="ln"></span><span class="tag" data-es="Contacto" data-en="Contact">Contacto</span></div>
       <h2 class="sec-title" data-es="Escríbeme" data-en="Get in touch">Escríbeme</h2>
     </div>
     <div class="contact-grid">
@@ -579,8 +581,7 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
         <div class="line"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5c0 8 7 15 15 15l1-3-4-2-2 2a13 13 0 0 1-6-6l2-2-2-4z"/></svg></span><a href="tel:+50688711037">+506 8871 1037</a></div>
         <div class="line"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg></span><a href="mailto:mabelmarin86@gmail.com">mabelmarin86@gmail.com</a></div>
         <div class="socials">
-          <a href="https://www.facebook.com/mabelmarin86/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9V7c0-1 .3-1.5 1.5-1.5H17V2.5h-2.5C11.6 2.5 11 4.3 11 6.2V9H8.5v3H11v9.5h3V12h2.3l.4-3H14z"/></svg></a>
-          <a href="https://www.instagram.com/yomabelita/?hl=es-la" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.2"/></svg></a>
+          <a href="https://www.instagram.com/mabelmarin.cr" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.2"/></svg></a>
           <a href="https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M10 9.2v5.6l5-2.8z" fill="var(--bg-2)"/></svg></a>
         </div>
       </div>
