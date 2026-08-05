@@ -22,6 +22,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Marcellus&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
+<!-- Opening animation (Bloque 3): preload logo art so the intro never flashes unloaded; GSAP deferred (non-blocking) -->
+<link rel="preload" as="image" href="assets/img/logo-mark.png" />
+<link rel="preload" as="image" href="assets/img/logo-full.png" />
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Mabel Marín","jobTitle":"Directora, Actriz y Dramaturga","nationality":"Costa Rica","url":"https://www.mabelmarin.org","email":"mabelmarin86@gmail.com","telephone":"+50688711037","address":{"@type":"PostalAddress","addressLocality":"San José","addressCountry":"CR"},"sameAs":["https://www.facebook.com/mabelmarin86/","https://www.instagram.com/yomabelita/","https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A"],"award":"Premio Nacional de Teatro a Mejor Dirección (2012 y 2020)"}
 </script>
@@ -81,23 +86,27 @@ a{color:inherit;text-decoration:none}
   transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;left:50%;top:50%}
 @media(hover:hover) and (pointer:fine){.spot.on{opacity:1}}
 
-/* ===== CURTAIN ===== */
-.curtain{position:fixed;inset:0;z-index:200;display:flex;pointer-events:none}
-.curtain .panel{flex:1;background:
-   linear-gradient(90deg,#1F4536,#2F6350 18%,#1F4536 38%,#3E8267 58%,#1F4536 80%,#264F40);
-   background-size:60px 100%;box-shadow:inset 0 0 120px rgba(0,0,0,.6)}
-.curtain .panel.l{transform-origin:left;animation:openL 1.5s 2.4s cubic-bezier(.7,0,.3,1) forwards}
-.curtain .panel.r{transform-origin:right;animation:openR 1.5s 2.4s cubic-bezier(.7,0,.3,1) forwards}
-.curtain .title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:2;animation:fadeTitle .9s 1.7s forwards;opacity:1}
-.curtain .title .name{font-family:var(--display);font-size:clamp(2.4rem,7vw,5rem);letter-spacing:.3em;
-  color:var(--gold-bright);text-indent:.3em;opacity:0;animation:rise 1s .5s forwards}
-.curtain .title .sub{font-size:.8rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ink-soft);
-  margin-top:18px;opacity:0;animation:rise 1s .9s forwards}
-.curtain.done{display:none}
-@keyframes openL{to{transform:scaleX(0)}}
-@keyframes openR{to{transform:scaleX(0)}}
-@keyframes fadeTitle{to{opacity:0}}
+/* ===== INTRO (opening: three brand-colour cloths part -> isotipo -> full logo) =====
+   Driven by GSAP timeline in the script (transform/opacity/clip-path only).
+   TODO(mejora futura): si se traza el isotipo a SVG con cada forma como <path>,
+   reemplazar estos paños geométricos por las formas reales para bordes orgánicos. */
+.intro{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);pointer-events:none;overflow:hidden}
+.intro-stage{position:relative;width:min(56vw,440px);aspect-ratio:1/1}
+.intro-mark,.intro-full{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  opacity:0;will-change:transform,opacity}
+.intro-panel{position:absolute;top:4%;bottom:4%;border-radius:70px;will-change:transform;
+  box-shadow:inset 0 0 70px rgba(0,0,0,.16)}
+.intro-panel.p1{left:8%;width:46%;background:linear-gradient(158deg,#A9D2CE,#7BB1AD)}
+.intro-panel.p2{right:8%;width:46%;background:linear-gradient(202deg,#EEB45C,#DC8F26)}
+.intro-panel.p3{left:34%;width:32%;top:auto;bottom:6%;height:30%;border-radius:50%;
+  background:linear-gradient(158deg,#F7BAD0,#ED95B4)}
+.intro-skip{position:absolute;bottom:26px;right:28px;z-index:3;pointer-events:auto;background:transparent;
+  border:1px solid var(--line);color:var(--ink-mute);font-family:var(--sans);font-size:.62rem;
+  letter-spacing:.22em;text-transform:uppercase;padding:9px 16px;border-radius:999px;cursor:pointer;
+  transition:color .3s,border-color .3s}
+.intro-skip:hover{color:var(--gold-bright);border-color:var(--gold-bright)}
+.intro-skip:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 
 /* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
@@ -338,7 +347,7 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .curtain{display:none}
+  .intro{display:none}
 }
 </style>
 </head>
@@ -348,14 +357,16 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 <div class="vignette"></div>
 <div class="spot" id="spot"></div>
 
-<!-- ===== CURTAIN ===== -->
-<div class="curtain" id="curtain">
-  <div class="title">
-    <div class="name">MABEL MARÍN</div>
-    <div class="sub" data-es="Directora · Actriz · Dramaturga" data-en="Director · Actress · Playwright">Directora · Actriz · Dramaturga</div>
+<!-- ===== INTRO (opening animation: cloths part -> isotipo -> full logo) ===== -->
+<div class="intro" id="intro">
+  <div class="intro-stage" aria-hidden="true">
+    <img class="intro-full" src="assets/img/logo-full.png" alt="" width="440" height="440" />
+    <img class="intro-mark" src="assets/img/logo-mark.png" alt="" width="440" height="440" />
+    <span class="intro-panel p1"></span>
+    <span class="intro-panel p2"></span>
+    <span class="intro-panel p3"></span>
   </div>
-  <div class="panel l"></div>
-  <div class="panel r"></div>
+  <button class="intro-skip" id="introSkip" type="button" data-es="Saltar intro" data-en="Skip intro">Saltar intro</button>
 </div>
 
 <!-- ===== NAV ===== -->
@@ -723,12 +734,41 @@ render();
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 document.querySelectorAll('[data-count]').forEach(el=>statIO.observe(el));
 
-const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-if(reduce){startHero();}
-else{
-  setTimeout(startHero,2600);
-  setTimeout(()=>document.getElementById('curtain').classList.add('done'),4100);
+/* ===== Opening (Bloque 3): three brand-colour cloths part, isotipo resolves,
+   then it decants into the full logo which settles toward the header. ===== */
+function initIntro(){
+  const intro=document.getElementById('intro');
+  const skip=document.getElementById('introSkip');
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let seen=false; try{seen=sessionStorage.getItem('mabel_intro_seen_v1')==='1';}catch(e){}
+  function finish(){
+    if(intro)intro.style.display='none';
+    try{sessionStorage.setItem('mabel_intro_seen_v1','1');}catch(e){}
+    startHero();
+  }
+  // Hard skip: reduced motion, already seen this session, missing node, or GSAP unavailable.
+  if(!intro||reduce||seen||!window.gsap){finish();return;}
+  gsap.set('.intro-full',{opacity:0,scale:.94});
+  gsap.set('.intro-mark',{opacity:0,clipPath:'inset(0% 50% 0% 50%)'});
+  gsap.set('.intro-panel.p1',{rotation:-11});
+  gsap.set('.intro-panel.p2',{rotation:9});
+  const tl=gsap.timeline({onComplete:finish,defaults:{ease:'power3.inOut'}});
+  tl // 0.2-1.05s: the three cloths part from three edges (transform only, GPU)
+    .to('.intro-panel.p1',{xPercent:-165,rotation:-3,duration:.85},0.2)
+    .to('.intro-panel.p2',{xPercent:165,rotation:3,duration:.85},0.2)
+    .to('.intro-panel.p3',{yPercent:200,duration:.78,ease:'power3.in'},0.22)
+    // isotipo draws in from the centre (clip-path wipe) as the cloths clear
+    .to('.intro-mark',{opacity:1,clipPath:'inset(0% 0% 0% 0%)',duration:.65,ease:'power2.out'},0.5)
+    // 1.1-1.4s breathing beat, then crossfade to the full logo + subtle scale (no overshoot)
+    .to('.intro-mark',{opacity:0,duration:.6,ease:'power2.inOut'},1.4)
+    .to('.intro-full',{opacity:1,scale:1,duration:.7,ease:'power2.out'},1.45)
+    // logo settles toward the header; hero revealed just before the overlay clears (no jump)
+    .to('.intro-full',{scale:.32,xPercent:-44,yPercent:-66,duration:.5,ease:'power2.inOut'},2.15)
+    .to('.intro',{autoAlpha:0,duration:.45,ease:'power1.out'},2.2)
+    .add(startHero,2.3);
+  skip.addEventListener('click',()=>{tl.kill();finish();},{once:true});
 }
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initIntro);}else{initIntro();}
 </script>
 </body>
 </html>
