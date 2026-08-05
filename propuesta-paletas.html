@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paletas para tu sitio · Mabel Marín</title>
+<meta name="description" content="Propuesta de tres paletas de color para el sitio de Mabel Marín, cada una mostrada como se vería su portada." />
+<meta name="theme-color" content="#0b0c0e" />
+<meta name="robots" content="noindex" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Paletas para tu sitio · Mabel Marín" />
+<meta property="og:description" content="Tres direcciones de color para elegir — verde, barro o petróleo." />
+<meta property="og:image" content="https://mabelmarin.vercel.app/assets/img/logo-white-bg.png" />
+<meta property="og:url" content="https://mabelmarin.vercel.app/propuesta-paletas" />
+<meta name="twitter:card" content="summary_large_image" />
+<style>
+  :root{
+    --serif:'Cormorant Garamond','Iowan Old Style',Palatino,Georgia,serif;
+    --display:'Marcellus','Optima','Palatino Linotype',Georgia,serif;
+    --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+    /* page chrome — a quiet dark stage so the palettes carry the colour */
+    --ground:#0b0c0e;
+    --ground-2:#111317;
+    --chrome-ink:#e9e4d7;
+    --chrome-mute:#8f8b7e;
+    --hair:rgba(233,228,215,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ground);color:var(--chrome-ink);font-family:var(--sans);
+    font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1000px 600px at 50% -10%,rgba(201,160,120,.06),transparent 60%);
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+
+  /* ---- intro ---- */
+  .intro{padding:84px 0 40px;text-align:center;max-width:760px;margin:0 auto}
+  .kicker{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--chrome-mute);
+    display:inline-flex;align-items:center;gap:14px;margin-bottom:26px}
+  .kicker::before,.kicker::after{content:"";width:34px;height:1px;background:currentColor;opacity:.5}
+  .intro h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,6vw,4rem);
+    line-height:1.02;letter-spacing:.01em;text-wrap:balance}
+  .intro h1 em{font-family:var(--serif);font-style:italic}
+  .intro p{color:var(--chrome-mute);font-size:1.06rem;margin-top:22px;text-wrap:balance}
+  .intro .hint{margin-top:20px;font-size:.82rem;letter-spacing:.04em;color:var(--chrome-ink)}
+
+  /* ---- palette blocks ---- */
+  .palettes{display:flex;flex-direction:column;gap:34px;padding:34px 0 20px}
+  .palette{
+    background:var(--bg);border:1px solid var(--hair);border-radius:18px;overflow:hidden;
+    display:grid;grid-template-columns:1.15fr .85fr;
+    box-shadow:0 30px 70px -40px rgba(0,0,0,.8);
+  }
+  /* the mockup — a real slice of her hero, rendered in the palette */
+  .stage{
+    position:relative;padding:52px 48px;background:var(--bg);
+    background-image:radial-gradient(680px 360px at 12% -10%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 60%);
+    display:flex;flex-direction:column;justify-content:center;min-height:340px;
+  }
+  .stage .eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent-text);
+    display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .stage .eyebrow::before{content:"";width:30px;height:1px;background:var(--accent-text)}
+  .stage .name{font-family:var(--display);font-weight:400;line-height:.9;
+    font-size:clamp(2.6rem,6vw,4.4rem);color:var(--paper);letter-spacing:.01em}
+  .stage .name span{color:var(--accent-text)}
+  .stage .roles{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--muted);margin:16px 0 30px}
+  .stage .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .stage .btn{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+    padding:13px 24px;border-radius:2px;font-weight:400;cursor:default}
+  .stage .btn-solid{background:var(--accent);color:var(--paper);border:1px solid var(--accent)}
+  .stage .btn-ghost{background:transparent;color:var(--accent-text);border:1px solid var(--accent-text)}
+  .stage .chip{position:absolute;top:26px;right:30px;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--support);border:1px solid var(--support);border-radius:999px;padding:5px 12px}
+
+  /* the info side — name, mood, swatches */
+  .facts{padding:40px 40px;background:var(--panel);border-left:1px solid var(--hair);
+    display:flex;flex-direction:column;gap:22px}
+  .facts-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .opt{font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+  .live{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);
+    background:var(--accent-text);border-radius:999px;padding:4px 11px;font-weight:500}
+  .facts h2{font-family:var(--display);font-weight:400;font-size:1.9rem;color:var(--paper);letter-spacing:.02em}
+  .mood{color:var(--muted);font-size:.98rem;line-height:1.62}
+  .mood b{color:var(--paper);font-weight:400}
+  .swatches{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+  .sw{display:flex;align-items:center;gap:12px;font-size:.74rem;color:var(--muted);
+    font-variant-numeric:tabular-nums}
+  .sw i{width:26px;height:26px;border-radius:6px;flex:0 0 auto;border:1px solid rgba(255,255,255,.14)}
+  .sw b{color:var(--paper);font-weight:400;min-width:78px}
+  .sw code{margin-left:auto;letter-spacing:.05em;opacity:.8}
+
+  /* ---- outro ---- */
+  .outro{border-top:1px solid var(--hair);margin-top:40px;padding:48px 0 90px;text-align:center}
+  .outro h3{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--chrome-ink);text-wrap:balance}
+  .outro p{color:var(--chrome-mute);margin-top:14px;font-size:.98rem}
+  .outro .note{margin-top:22px;font-size:.8rem;color:var(--chrome-mute);max-width:560px;margin-inline:auto}
+
+  @media(max-width:760px){
+    .palette{grid-template-columns:1fr}
+    .facts{border-left:none;border-top:1px solid var(--hair)}
+    .stage{min-height:290px;padding:44px 34px}
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .palette{transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+    .palette:hover{transform:translateY(-5px);box-shadow:0 40px 90px -40px rgba(0,0,0,.9)}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="intro">
+    <span class="kicker">Propuesta de color</span>
+    <h1>Tres <em>vestidos</em> para tu escena</h1>
+    <p>Pediste algo más fresco que el negro-dorado: serio, pero no tan serio. Acá van tres direcciones, cada una mostrada tal como se vería tu portada. Todas mantienen la misma estructura y la letra; lo único que cambia es el color.</p>
+    <p class="hint">Elegí la que más te representa y la dejamos aplicada. También podemos mezclar.</p>
+  </header>
+
+  <div class="palettes">
+
+    <!-- A — Verde telón (live) -->
+    <article class="palette" style="--bg:#12161A;--panel:#1B2127;--accent:#2F6350;--accent-text:#5AA485;--paper:#EDE6D8;--muted:#B9AF98;--support:#C98A4B">
+      <div class="stage">
+        <span class="chip">Premio Nacional 2020</span>
+        <p class="eyebrow">Pasión · Teatro · Costa Rica</p>
+        <h2 class="name">Mabel <span>Marín</span></h2>
+        <p class="roles">Directora · Actriz · Dramaturga</p>
+        <div class="cta">
+          <span class="btn btn-solid">Descargar currículum</span>
+          <span class="btn btn-ghost">Ver trayectoria</span>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="facts-top"><span class="opt">Opción A</span><span class="live">En vivo ahora</span></div>
+        <h2>Verde telón</h2>
+        <p class="mood"><b>Fresca y serena.</b> Verde escénico con crema cálida. Botánica, viva y teatral, tranquila sin ser apagada.</p>
+        <div class="swatches">
+          <div class="sw"><i style="background:#12161A"></i><b>Fondo</b><code>#12161A</code></div>
+          <div class="sw"><i style="background:#2F6350"></i><b>Acento</b><code>#2F6350</code></div>
+          <div class="sw"><i style="background:#5AA485"></i><b>Acento luz</b><code>#5AA485</code></div>
+          <div class="sw"><i style="background:#EDE6D8"></i><b>Texto</b><code>#EDE6D8</code></div>
+          <div class="sw"><i style="background:#C98A4B"></i><b>Detalle</b><code>#C98A4B</code></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- B — Barro / Terracota -->
+    <article class="palette" style="--bg:#18110D;--panel:#241A13;--accent:#A85A34;--accent-text:#DB8B5E;--paper:#EFE6D8;--muted:#B8A791;--support:#7C9A88">
+      <div class="stage">
+        <span class="chip">Premio Nacional 2020</span>
+        <p class="eyebrow">Pasión · Teatro · Costa Rica</p>
+        <h2 class="name">Mabel <span>Marín</span></h2>
+        <p class="roles">Directora · Actriz · Dramaturga</p>
+        <div class="cta">
+          <span class="btn btn-solid">Descargar currículum</span>
+          <span class="btn btn-ghost">Ver trayectoria</span>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="facts-top"><span class="opt">Opción B</span></div>
+        <h2>Barro</h2>
+        <p class="mood"><b>Cálida y humana.</b> Terracota y arcilla sobre café oscuro, con un verde salvia de apoyo. La tierra del teatro latinoamericano, cercana y con carácter.</p>
+        <div class="swatches">
+          <div class="sw"><i style="background:#18110D"></i><b>Fondo</b><code>#18110D</code></div>
+          <div class="sw"><i style="background:#A85A34"></i><b>Acento</b><code>#A85A34</code></div>
+          <div class="sw"><i style="background:#DB8B5E"></i><b>Acento luz</b><code>#DB8B5E</code></div>
+          <div class="sw"><i style="background:#EFE6D8"></i><b>Texto</b><code>#EFE6D8</code></div>
+          <div class="sw"><i style="background:#7C9A88"></i><b>Detalle</b><code>#7C9A88</code></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- C — Petróleo / Azul escena -->
+    <article class="palette" style="--bg:#0F1417;--panel:#172025;--accent:#2C6E77;--accent-text:#57ABB0;--paper:#E9E7DE;--muted:#A6AEAC;--support:#DA8C67">
+      <div class="stage">
+        <span class="chip">Premio Nacional 2020</span>
+        <p class="eyebrow">Pasión · Teatro · Costa Rica</p>
+        <h2 class="name">Mabel <span>Marín</span></h2>
+        <p class="roles">Directora · Actriz · Dramaturga</p>
+        <div class="cta">
+          <span class="btn btn-solid">Descargar currículum</span>
+          <span class="btn btn-ghost">Ver trayectoria</span>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="facts-top"><span class="opt">Opción C</span></div>
+        <h2>Petróleo</h2>
+        <p class="mood"><b>Fresca y nocturna.</b> Azul petróleo con un destello coral. La penumbra justo antes de que suban las luces: moderna, artística, con temperatura.</p>
+        <div class="swatches">
+          <div class="sw"><i style="background:#0F1417"></i><b>Fondo</b><code>#0F1417</code></div>
+          <div class="sw"><i style="background:#2C6E77"></i><b>Acento</b><code>#2C6E77</code></div>
+          <div class="sw"><i style="background:#57ABB0"></i><b>Acento luz</b><code>#57ABB0</code></div>
+          <div class="sw"><i style="background:#E9E7DE"></i><b>Texto</b><code>#E9E7DE</code></div>
+          <div class="sw"><i style="background:#DA8C67"></i><b>Detalle</b><code>#DA8C67</code></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <footer class="outro">
+    <h3>¿Cuál te representa más?</h3>
+    <p>Decinos A, B o C y la dejamos aplicada en todo el sitio en minutos.</p>
+    <p class="note">Todas cumplen contraste de accesibilidad (texto legible sobre el fondo) y conservan la estructura, la tipografía y las animaciones que ya viste. Hoy está en vivo la Opción A.</p>
+  </footer>
+
+</div>
+</body>
+</html>
