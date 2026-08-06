@@ -34,29 +34,30 @@
 
 <style>
 :root{
-  /* ===== Verde telón (Bloque 2) — nombres existentes, valores nuevos =====
-     --gold = "acento" #2F6350: SOLO fills/bordes/decorativo (2.62:1 → falla AA como texto).
-     --gold-bright = verde claro #5AA485: TODO texto verde (6.1:1 tinta / 5.5:1 tinta-suave, AA ✓).
-     Nota: el "acento-hover #3E8267" de la tabla da 3.98:1 en texto pequeño (bajo AA), por eso
-     el texto verde usa un verde más claro derivado del mismo acento. */
-  --bg:#12161A;
-  --bg-2:#1B2127;
-  --bg-3:#232B31;
-  --ink:#EDE6D8;
-  --ink-soft:#B9AF98;
-  --ink-mute:#9A9078;
-  --gold:#2F6350;
-  --gold-bright:#5AA485;
-  --acento-deep:#1F4536;
-  --apoyo:#C98A4B;
-  --apoyo-suave:#E0B37E;
-  --crimson:#1F4536;
-  --crimson-soft:#C98A4B;
-  --line:rgba(47,99,80,.28);
-  --line-soft:rgba(237,230,216,.08);
+  /* ===== Petróleo · Teatro nocturno (rediseño) — se conservan los NOMBRES de vars =====
+     --gold = petróleo #2C6E77 (fills/bordes). --gold-bright = petróleo luz #5FB2B6 (TEXTO, 7.5:1).
+     --apoyo = latón #C6A15B (premios / detalle noble). --coral = chispa cálida. Todo WCAG AA. */
+  --bg:#0F1417;
+  --bg-2:#151D22;
+  --bg-3:#1C262C;
+  --ink:#ECEAE0;
+  --ink-soft:#B4BCB9;
+  --ink-mute:#94A0A0;
+  --gold:#2C6E77;
+  --gold-bright:#5FB2B6;
+  --acento-deep:#1C4B52;
+  --apoyo:#C6A15B;
+  --apoyo-suave:#D8B57A;
+  --coral:#E0906B;
+  --crimson:#1C4B52;
+  --crimson-soft:#C6A15B;
+  --line:rgba(95,178,182,.20);
+  --line-soft:rgba(236,234,224,.09);
   --serif:'Cormorant Garamond',Georgia,serif;
   --display:'Marcellus',serif;
   --sans:'Jost',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-2:cubic-bezier(.32,.72,0,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -68,9 +69,9 @@ body{
 body::before{
   content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(1100px 700px at 50% -15%, rgba(47,99,80,.11), transparent 60%),
-    radial-gradient(800px 600px at 88% 8%, rgba(47,99,80,.05), transparent 55%),
-    radial-gradient(900px 900px at 10% 100%, rgba(201,138,75,.07), transparent 60%);
+    radial-gradient(1150px 720px at 74% -12%, rgba(44,110,119,.22), transparent 60%),
+    radial-gradient(820px 620px at 90% 10%, rgba(95,178,182,.06), transparent 55%),
+    radial-gradient(900px 900px at 6% 108%, rgba(224,144,107,.08), transparent 60%);
 }
 /* film grain + vignette */
 .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
@@ -85,7 +86,7 @@ a{color:inherit;text-decoration:none}
 
 /* spotlight cursor */
 .spot{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:2;
-  background:radial-gradient(circle, rgba(90,164,133,.07), transparent 65%);
+  background:radial-gradient(circle, rgba(95,178,182,.09), transparent 65%);
   transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;left:50%;top:50%}
 @media(hover:hover) and (pointer:fine){.spot.on{opacity:1}}
 
@@ -329,6 +330,98 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
+/* ============================================================
+   REDISEÑO · TEATRO NOCTURNO — capa de elevación (Petróleo)
+   Tratamiento editorial-teatral: profundidad háptica, latón, afiches,
+   botones con cuerpo. Sobrescribe los componentes base (gana por orden).
+   ============================================================ */
+
+/* — Tipografía que actúa — */
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(4rem,10.5vw,9.5rem);line-height:.86;letter-spacing:0}
+.hero h1 .ln:nth-child(2) span{font-style:italic;font-weight:600}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.44em}
+.hero-eyebrow::before,.hero-eyebrow::after{background:var(--gold-bright)}
+.sec-title{font-size:clamp(2.9rem,6vw,4.7rem);line-height:1}
+.sec-head{margin-bottom:72px}
+section{padding:clamp(96px,15vh,158px) 0}
+
+/* — Botón "isla": el ícono vive en su propio círculo — */
+.btn{border-radius:999px;border:1px solid var(--gold-bright);gap:16px;padding:13px 14px 13px 30px;
+  overflow:visible;transition:transform .5s var(--ease-2),color .4s,background .4s}
+.btn::before{border-radius:999px}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.985)}
+.btn-ghost{padding:15px 32px}
+.btn-solid:hover{color:var(--ink)}
+.btn .arr{flex:0 0 36px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem;
+  background:rgba(236,234,224,.16);position:relative;z-index:2;transition:transform .5s var(--ease-2)}
+.btn:hover .arr{transform:translate(4px,-2px) scale(1.06)}
+
+/* — Actos como programa de mano — */
+.act-label{gap:20px;align-items:flex-end}
+.act-label .num{font-family:var(--serif);font-style:italic;font-size:clamp(2.1rem,4vw,3rem);line-height:.78;color:var(--gold-bright)}
+.act-label .ln{flex:0 0 44px;background:var(--gold-bright);opacity:.75;margin-bottom:.5em}
+.act-label .tag{letter-spacing:.34em;color:var(--apoyo);margin-bottom:.35em}
+
+/* — Premios: placas de latón grabadas (doble filete, sin wrapper) — */
+.awards-grid{gap:24px}
+.award{border:1px solid rgba(198,161,91,.55);border-radius:9px;padding:48px 40px;
+  background:linear-gradient(160deg,rgba(23,34,39,.6),#0e161a);background-color:#121a1e;
+  box-shadow:0 34px 66px -42px rgba(0,0,0,.92),inset 0 1px 0 rgba(255,255,255,.06)}
+.award::after{content:"";position:absolute;inset:6px;border:1px solid rgba(198,161,91,.24);border-radius:5px;pointer-events:none;z-index:1}
+.award>*{position:relative;z-index:2}
+.award:hover{transform:translateY(-8px);border-color:rgba(198,161,91,.85)}
+.award .laurel{color:var(--apoyo);font-size:1.35rem}
+.award .yr{font-family:var(--serif);font-style:italic;color:var(--apoyo);font-size:3.6rem;font-weight:600;
+  text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.award h3{color:var(--ink)}
+.award p{color:var(--ink-soft)}
+.award .work{color:var(--ink-soft)}
+.award-rule line{stroke:var(--apoyo)}
+
+/* — Obras como afiches (tilt 3D + foco lo pone el JS) — */
+.works{gap:30px;perspective:1500px}
+.work{background:var(--bg-2);border:1px solid var(--line);border-radius:7px;overflow:hidden;
+  box-shadow:0 40px 74px -50px rgba(0,0,0,.95);transform-style:preserve-3d;will-change:transform;
+  transition:transform .6s var(--ease-2),border-color .5s,box-shadow .5s}
+.work:hover{transform:translateY(-6px);border-color:var(--hair-2,rgba(95,178,182,.4));box-shadow:0 54px 90px -46px rgba(0,0,0,.95)}
+.work-img{aspect-ratio:3/4}
+.work-img .yr{background:var(--gold-bright);color:var(--bg);font-weight:400;border-radius:3px}
+.work-img::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;transition:opacity .5s;
+  background:radial-gradient(240px 200px at var(--mx,50%) var(--my,35%),rgba(95,178,182,.35),transparent 68%);mix-blend-mode:screen}
+.work:hover .work-img::before{opacity:1}
+.work-body h3{color:var(--ink)}
+
+/* — Retrato del hero: marco de latón + placa "En escena" — */
+.hero-portrait .frame{inset:-15px;border:1px solid rgba(198,161,91,.32);transform:translate(18px,18px)}
+.hero-portrait.go .frame{transform:translate(12px,12px)}
+.hero-portrait .ph{border:1px solid rgba(198,161,91,.4);border-radius:2px}
+.hero-portrait::after{content:"En escena";position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);z-index:5;
+  background:var(--bg-2);border:1px solid rgba(198,161,91,.5);border-radius:4px;padding:6px 18px;white-space:nowrap;
+  font-family:var(--display);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--apoyo)}
+
+/* — Disciplinas — */
+.disc .rn{font-size:2rem;color:var(--apoyo)}
+.disc:hover{background:var(--bg-3)}
+
+/* — Sección "Declaración" (nueva) — */
+.statement{position:relative;padding:clamp(120px,19vh,200px) 0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden}
+.statement::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(760px 420px at 18% -10%,rgba(44,110,119,.20),transparent 64%)}
+.statement .wrap{max-width:1020px}
+.statement .mark{font-family:var(--serif);font-size:3.4rem;color:var(--apoyo);opacity:.6;display:block;line-height:1}
+.statement .say{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(2rem,4.6vw,3.6rem);
+  line-height:1.18;color:var(--ink);letter-spacing:.004em;text-wrap:balance;margin-top:6px}
+.statement .say b{color:var(--gold-bright);font-weight:600}
+.statement .cite{display:block;margin-top:30px;font-family:var(--sans);font-size:.7rem;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--apoyo)}
+
+/* — Helpers de reveal para el motion nuevo — */
+.reveal [data-rline]{display:block;overflow:hidden}
+.char{display:inline-block;will-change:transform}
+.will-rise{will-change:transform,filter,opacity}
+
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:50px}
   .hero-portrait{max-width:400px;order:-1}
@@ -451,6 +544,15 @@ footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
         <div class="cred"><span class="yr" data-es="2009" data-en="2009">2009</span><span class="d"><b data-es="Bachillerato en Artes Dramáticas" data-en="Bachelor in Dramatic Arts">Bachillerato en Artes Dramáticas</b><span data-es="Universidad de Costa Rica" data-en="University of Costa Rica">Universidad de Costa Rica</span></span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== STATEMENT (declaración editorial) ===== -->
+<section class="statement reveal" aria-label="Trayectoria">
+  <div class="wrap">
+    <span class="mark" aria-hidden="true">❦</span>
+    <p class="say" data-es="Dos décadas encendiendo la escena costarricense: <b>dirigir, escribir, actuar</b> y formar a quienes vienen." data-en="Two decades lighting the Costa Rican stage: <b>directing, writing, acting</b> and teaching those who follow.">Dos décadas encendiendo la escena costarricense: <b>dirigir, escribir, actuar</b> y formar a quienes vienen.</p>
+    <span class="cite" data-es="La trayectoria" data-en="The work">La trayectoria</span>
   </div>
 </section>
 
@@ -789,63 +891,95 @@ function initScrollFX(){
   gsap.registerPlugin(ScrollTrigger);
   const takeOver=el=>{ if(!el)return; io.unobserve(el); el.classList.remove('rv','rv-d1','rv-d2','rv-d3','in'); };
   gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
-    // 4.1 Acto I — formation list illuminates item by item, tied to real scroll (scrub)
+
+    // split a heading into per-letter spans (words kept whole so they never break mid-word)
+    const split=el=>{ if(!el||el.dataset.split)return[]; const t=el.textContent; el.dataset.split='1'; el.textContent='';
+      const f=document.createDocumentFragment();
+      t.split(/(\s+)/).forEach(tok=>{ if(/^\s+$/.test(tok)){f.appendChild(document.createTextNode(tok));return;}
+        const w=document.createElement('span'); w.style.display='inline-block'; w.style.whiteSpace='nowrap';
+        [...tok].forEach(ch=>{const c=document.createElement('span');c.className='char';c.textContent=ch;w.appendChild(c);});
+        f.appendChild(w); });
+      el.appendChild(f); return el.querySelectorAll('.char'); };
+
+    // Section headings — the title MATERIALISES letter by letter (rise + de-blur), out of the penumbra
+    gsap.utils.toArray('.sec-head').forEach(head=>{
+      takeOver(head);
+      const label=head.querySelector('.act-label'), title=head.querySelector('.sec-title'), sub=head.querySelector('.sec-sub');
+      const chars=split(title);
+      const tl=gsap.timeline({scrollTrigger:{trigger:head,start:'top 82%'}});
+      if(label) tl.from(label,{autoAlpha:0,y:18,duration:.6,ease:'power2.out'},0);
+      if(chars.length){ gsap.set(chars,{y:'0.5em',autoAlpha:0,filter:'blur(8px)'});
+        tl.to(chars,{y:0,autoAlpha:1,filter:'blur(0px)',duration:.7,ease:'power3.out',stagger:.02},.12); }
+      if(sub) tl.from(sub,{autoAlpha:0,y:16,duration:.6,ease:'power2.out'},.34);
+    });
+
+    // Statement — rises out of the dark
+    const st=document.querySelector('.statement');
+    if(st) gsap.from(st.querySelectorAll('.mark,.say,.cite'),{y:26,autoAlpha:0,filter:'blur(7px)',duration:.85,stagger:.13,ease:'power2.out',
+      scrollTrigger:{trigger:st,start:'top 78%'}});
+
+    // Acto I — formation list illuminates item by item, tied to real scroll (scrub)
     const creds=document.querySelector('#about .creds');
-    if(creds){
-      takeOver(creds);
-      gsap.from(gsap.utils.toArray('#about .creds .cred'),{autoAlpha:.3,duration:1,ease:'none',stagger:.4,
-        scrollTrigger:{trigger:creds,start:'top 80%',end:'bottom 62%',scrub:true}});
-    }
-    // 4.1 bio — block-by-block reveal (line-by-line feel; true per-line would need SplitText)
+    if(creds){ takeOver(creds);
+      gsap.from(gsap.utils.toArray('#about .creds .cred'),{autoAlpha:.28,duration:1,ease:'none',stagger:.4,
+        scrollTrigger:{trigger:creds,start:'top 80%',end:'bottom 62%',scrub:true}}); }
+    // bio — blur-rise, block by block
     const bio=document.querySelector('#about .about-text');
-    if(bio){
-      takeOver(bio);
-      gsap.from(bio.children,{yPercent:16,autoAlpha:0,duration:.7,stagger:.14,ease:'power2.out',
-        scrollTrigger:{trigger:bio,start:'top 78%'}});
-    }
-    // 4.2 Intermedio — award cards stagger in; a thin rule draws under each year
-    const awards=gsap.utils.toArray('.awards .award');
-    awards.forEach(takeOver);
-    awards.forEach(a=>{
-      const yr=a.querySelector('.yr');
-      if(yr && !a.querySelector('.award-rule')){
-        const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-        svg.setAttribute('class','award-rule'); svg.setAttribute('viewBox','0 0 120 4'); svg.setAttribute('aria-hidden','true');
-        const ln=document.createElementNS('http://www.w3.org/2000/svg','line');
-        ln.setAttribute('x1','1'); ln.setAttribute('y1','2'); ln.setAttribute('x2','119'); ln.setAttribute('y2','2');
-        svg.appendChild(ln); yr.insertAdjacentElement('afterend',svg);
-      }
-    });
-    if(awards.length){
-      ScrollTrigger.batch(awards,{start:'top 84%',
-        onEnter:b=>gsap.from(b,{y:34,autoAlpha:0,duration:.7,stagger:.15,ease:'power2.out',overwrite:true})});
-    }
-    gsap.utils.toArray('.award-rule line').forEach(ln=>{
-      const len=ln.getTotalLength?ln.getTotalLength():118;
+    if(bio){ takeOver(bio);
+      gsap.from(bio.children,{yPercent:14,autoAlpha:0,filter:'blur(6px)',duration:.8,stagger:.14,ease:'power2.out',
+        scrollTrigger:{trigger:bio,start:'top 78%'}}); }
+
+    // Intermedio — plaques rise + de-blur; a latón rule draws under each year
+    const awards=gsap.utils.toArray('.awards .award'); awards.forEach(takeOver);
+    awards.forEach(a=>{ const yr=a.querySelector('.yr');
+      if(yr && !a.querySelector('.award-rule')){ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.setAttribute('class','award-rule');svg.setAttribute('viewBox','0 0 120 4');svg.setAttribute('aria-hidden','true');
+        const ln=document.createElementNS('http://www.w3.org/2000/svg','line');ln.setAttribute('x1','1');ln.setAttribute('y1','2');ln.setAttribute('x2','119');ln.setAttribute('y2','2');
+        svg.appendChild(ln);yr.insertAdjacentElement('afterend',svg);} });
+    if(awards.length) ScrollTrigger.batch(awards,{start:'top 84%',
+      onEnter:b=>gsap.from(b,{y:40,autoAlpha:0,filter:'blur(8px)',duration:.8,stagger:.16,ease:'power3.out',overwrite:true})});
+    gsap.utils.toArray('.award-rule line').forEach(ln=>{ const len=ln.getTotalLength?ln.getTotalLength():118;
       gsap.set(ln,{strokeDasharray:len,strokeDashoffset:len});
-      gsap.to(ln,{strokeDashoffset:0,duration:.9,ease:'power2.out',
-        scrollTrigger:{trigger:ln.closest('.award'),start:'top 76%'}});
-    });
-    // 4.3 Repertorio — the four roman numerals get subtle depth parallax
-    gsap.utils.toArray('.disc .rn').forEach((rn,i)=>{
-      gsap.to(rn,{yPercent:(i%2?-1:1)*(10+i*4),ease:'none',
-        scrollTrigger:{trigger:'.disc-grid',start:'top bottom',end:'bottom top',scrub:true}});
-    });
-    // 4.4 Actos III/IV — stable lists stagger in on scroll via batch (modern grid pattern)
-    ['#actingTimeline .tl-item','#playsGrid .play'].forEach(sel=>{
-      const items=gsap.utils.toArray(sel); if(!items.length)return;
+      gsap.to(ln,{strokeDashoffset:0,duration:.9,ease:'power2.out',scrollTrigger:{trigger:ln.closest('.award'),start:'top 76%'}}); });
+
+    // Repertorio — the four roman numerals get subtle depth parallax
+    gsap.utils.toArray('.disc .rn').forEach((rn,i)=>{ gsap.to(rn,{yPercent:(i%2?-1:1)*(10+i*4),ease:'none',
+      scrollTrigger:{trigger:'.disc-grid',start:'top bottom',end:'bottom top',scrub:true}}); });
+
+    // Actos III/IV — stable lists rise + de-blur (batch)
+    ['#actingTimeline .tl-item','#playsGrid .play'].forEach(sel=>{ const items=gsap.utils.toArray(sel); if(!items.length)return;
       ScrollTrigger.batch(items,{start:'top 88%',
-        onEnter:b=>gsap.from(b,{y:30,autoAlpha:0,duration:.6,stagger:.09,ease:'power2.out',overwrite:true})});
-    });
-    // 4.4 Acto II — works re-render on filter, so reveal current children once; filter handler owns later transitions
+        onEnter:b=>gsap.from(b,{y:34,autoAlpha:0,filter:'blur(7px)',duration:.7,stagger:.1,ease:'power3.out',overwrite:true})}); });
+    // Acto II — afiches rise once (works re-render on filter; the filter handler owns later transitions)
     const worksGrid=document.getElementById('worksGrid');
-    if(worksGrid){
-      ScrollTrigger.create({trigger:worksGrid,start:'top 86%',once:true,
-        onEnter:()=>gsap.from(worksGrid.querySelectorAll('.work'),{y:30,autoAlpha:0,duration:.6,stagger:.07,ease:'power2.out'})});
-    }
+    if(worksGrid) ScrollTrigger.create({trigger:worksGrid,start:'top 86%',once:true,
+      onEnter:()=>gsap.from(worksGrid.querySelectorAll('.work'),{y:36,autoAlpha:0,filter:'blur(7px)',duration:.7,stagger:.08,ease:'power3.out'})});
   });
 }
-function boot(){ initIntro(); initScrollFX(); }
+
+/* Pointer interactions (no scroll): magnetic buttons + afiche 3D tilt with a follow-spot.
+   Disabled for reduced-motion and touch pointers. */
+function initInteractions(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  document.querySelectorAll('.btn').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{ const r=btn.getBoundingClientRect();
+      const x=(e.clientX-r.left-r.width/2)/r.width, y=(e.clientY-r.top-r.height/2)/r.height;
+      btn.style.transform=`translate(${x*11}px,${y*8-2}px)`; });
+    btn.addEventListener('mouseleave',()=>{ btn.style.transform=''; });
+  });
+  const grid=document.getElementById('worksGrid'); let cur=null;
+  if(grid){
+    grid.addEventListener('mousemove',e=>{ const card=e.target.closest('.work');
+      if(card!==cur){ if(cur)cur.style.transform=''; cur=card; }
+      if(!card)return; const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+      card.style.transform=`rotateY(${(px-.5)*7}deg) rotateX(${(.5-py)*8}deg) translateY(-6px)`;
+      const img=card.querySelector('.work-img'); if(img){img.style.setProperty('--mx',px*100+'%');img.style.setProperty('--my',py*100+'%');} });
+    grid.addEventListener('mouseleave',()=>{ if(cur){cur.style.transform='';cur=null;} });
+  }
+}
+function boot(){ initIntro(); initScrollFX(); initInteractions(); }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
 </script>
 </body>
