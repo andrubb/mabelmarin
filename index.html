@@ -422,6 +422,85 @@ section{padding:clamp(96px,15vh,158px) 0}
 .char{display:inline-block;will-change:transform}
 .will-rise{will-change:transform,filter,opacity}
 
+/* ============================================================
+   FINISHING · el resto de las secciones, al mismo nivel teatral
+   ============================================================ */
+
+/* Barra de progreso — el avance de la función */
+.scroll-prog{position:fixed;top:0;left:0;right:0;height:2px;z-index:80;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--gold),var(--gold-bright) 55%,var(--apoyo));pointer-events:none}
+
+/* Nav */
+.brand{font-size:1.4rem}
+nav.scrolled{background:rgba(15,20,23,.86)}
+
+/* Stats — contadores como marquesina */
+.stats{background:var(--bg-2)}
+.stat{padding:64px 22px;transition:background .4s}
+.stat:hover{background:var(--bg-3)}
+.stat .num{font-size:clamp(3rem,6vw,5rem)}
+.stat .num .pre{color:var(--apoyo)}
+.stat .lbl{color:var(--apoyo);margin-top:18px}
+.stat::after{content:"";position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:0;height:1px;background:var(--gold-bright);transition:width .55s var(--ease)}
+.stat:hover::after{width:38px}
+
+/* Filtros — píldoras */
+.filters button{border-color:var(--line);color:var(--ink-soft)}
+.filters button:hover{border-color:var(--gold-bright);color:var(--ink)}
+.filters button.active{background:var(--gold-bright);color:var(--bg);border-color:var(--gold-bright)}
+
+/* Timeline (Actuación) — línea de escena */
+.timeline::before{background:linear-gradient(var(--gold-bright),var(--line),var(--apoyo))}
+.tl-item::before{border-color:var(--gold-bright);width:12px;height:12px;left:-28px}
+.tl-item:hover::before{background:var(--gold-bright);box-shadow:0 0 16px rgba(95,178,182,.7)}
+.tl-item .yr{color:var(--apoyo)}
+.tl-item h3{color:var(--ink)}
+.tl-film{border:1px solid var(--apoyo);background:linear-gradient(160deg,rgba(198,161,91,.10),transparent)}
+.tl-film .badge{color:var(--apoyo)}
+
+/* Dramaturgia — guiones publicados con lomo de latón */
+.plays{gap:26px}
+.play{background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--apoyo);border-radius:0 8px 8px 0;
+  padding:44px 40px;box-shadow:0 30px 62px -48px rgba(0,0,0,.9);transition:border-color .4s,transform .5s var(--ease-2),box-shadow .5s}
+.play:hover{border-color:var(--gold-bright);border-left-color:var(--apoyo);transform:translateY(-5px);box-shadow:0 44px 80px -46px rgba(0,0,0,.92)}
+.play h3{color:var(--ink)}
+.play .yr{color:var(--apoyo)}
+.play .dl{color:var(--gold-bright);border-bottom-color:var(--line)}
+.play .dl:hover{border-color:var(--gold-bright)}
+
+/* Académico — fichas de investigación */
+.acad{border-color:var(--line)}
+.acad-item:hover{background:var(--bg-2)}
+.acad-item .yr{color:var(--apoyo)}
+.acad-item h3{color:var(--ink)}
+.acad-item .dl{color:var(--gold-bright);border-color:var(--line)}
+.acad-item .dl:hover{background:var(--gold-bright);color:var(--bg);border-color:var(--gold-bright)}
+
+/* Galería (Momentos) — fotos enmarcadas con foco que sigue el cursor */
+.gallery figure{border:1px solid var(--line);border-radius:4px;padding:5px;background:var(--bg-2)}
+.gallery figure::after{content:"";position:absolute;inset:5px;z-index:2;opacity:0;pointer-events:none;transition:opacity .5s;
+  background:radial-gradient(200px 160px at var(--mx,50%) var(--my,40%),rgba(95,178,182,.32),transparent 66%);mix-blend-mode:screen}
+.gallery figure:hover::after{opacity:1}
+.gallery img{border-radius:2px}
+
+/* Camerino (contacto) — ficha teatral */
+.contact::before{background:radial-gradient(820px 420px at 82% 100%,rgba(44,110,119,.16),transparent 65%)}
+.contact-info .ic svg{stroke:var(--gold-bright)}
+input,textarea{background:var(--bg);border:1px solid var(--line);border-radius:4px;transition:border-color .3s,box-shadow .3s}
+input:focus,textarea:focus{border-color:var(--gold-bright);box-shadow:0 0 0 3px rgba(95,178,182,.14)}
+.socials a{border:1px solid var(--line);border-radius:50%;
+  transition:transform .5s var(--ease-2),background .35s,color .35s,border-color .35s}
+.socials a:hover{background:var(--gold-bright);color:var(--bg);border-color:var(--gold-bright)}
+
+/* Footer */
+footer{border-top:1px solid var(--line)}
+footer .made{color:rgba(148,160,160,.5)}
+
+/* Lightbox */
+.lb{background:rgba(9,12,14,.97);backdrop-filter:blur(6px)}
+.lb img{border:1px solid var(--line);border-radius:4px}
+.lb .x{color:var(--apoyo)}
+
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:50px}
   .hero-portrait{max-width:400px;order:-1}
@@ -458,6 +537,7 @@ section{padding:clamp(96px,15vh,158px) 0}
 <div class="grain"></div>
 <div class="vignette"></div>
 <div class="spot" id="spot"></div>
+<div class="scroll-prog" id="scrollProg" aria-hidden="true"></div>
 
 <!-- ===== INTRO (opening animation: cloths part -> isotipo -> full logo) ===== -->
 <div class="intro" id="intro">
@@ -978,8 +1058,29 @@ function initInteractions(){
       const img=card.querySelector('.work-img'); if(img){img.style.setProperty('--mx',px*100+'%');img.style.setProperty('--my',py*100+'%');} });
     grid.addEventListener('mouseleave',()=>{ if(cur){cur.style.transform='';cur=null;} });
   }
+  // social icons — gentle magnetic
+  document.querySelectorAll('.socials a').forEach(a=>{
+    a.addEventListener('mousemove',e=>{ const r=a.getBoundingClientRect();
+      a.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.3-3}px)`; });
+    a.addEventListener('mouseleave',()=>{ a.style.transform=''; });
+  });
+  // gallery — a follow-spot per photo
+  const gal=document.getElementById('gallery');
+  if(gal) gal.addEventListener('mousemove',e=>{ const fig=e.target.closest('figure'); if(!fig)return;
+    const r=fig.getBoundingClientRect();
+    fig.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');
+    fig.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%'); });
 }
-function boot(){ initIntro(); initScrollFX(); initInteractions(); }
+
+/* Reading progress — the show's advance (kept even under reduced motion; it's an indicator) */
+function initProgress(){
+  const bar=document.getElementById('scrollProg'); if(!bar)return;
+  let raf=0; const upd=()=>{ raf=0; const d=document.documentElement;
+    const max=d.scrollHeight-d.clientHeight; bar.style.transform='scaleX('+(max>0?Math.min(d.scrollTop/max,1):0)+')'; };
+  const q=()=>{ if(!raf) raf=requestAnimationFrame(upd); };
+  addEventListener('scroll',q,{passive:true}); addEventListener('resize',q,{passive:true}); upd();
+}
+function boot(){ initIntro(); initScrollFX(); initInteractions(); initProgress(); }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
 </script>
 </body>
