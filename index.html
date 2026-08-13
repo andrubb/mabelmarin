@@ -534,7 +534,11 @@ footer .made{color:rgba(148,160,160,.5)}
 .sh-sec{padding:46px 0;border-bottom:1px solid var(--line-soft)}
 .sh-sec:last-child{border-bottom:none}
 .sh-lbl{font-family:var(--display);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--apoyo);margin-bottom:24px}
-.sh-words{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.5;color:var(--ink)}
+.sh-words{font-family:var(--serif)}
+.sh-words p{font-size:clamp(1.06rem,1.7vw,1.3rem);line-height:1.74;color:var(--ink-soft);margin-bottom:18px}
+.sh-words p:first-child{color:var(--ink)}
+.sh-words .verbs{text-align:center;color:var(--gold-bright);font-style:italic;font-size:clamp(1.2rem,2.2vw,1.55rem);line-height:1.65;margin:30px auto;max-width:92%}
+.sh-words .sign{text-align:right;color:var(--apoyo);font-style:italic;font-size:1.4rem;margin-top:20px;letter-spacing:.1em}
 .sh-syn{font-size:1.06rem;line-height:1.78;color:var(--ink-soft)}
 .sh-credits{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
 .sh-credit{background:var(--bg);padding:15px 18px}
@@ -858,7 +862,7 @@ body.sheet-open{overflow:hidden}
 
 <script>
 const DIRECTING=[
-{t:"Las Cortes de la Muerte",yr:2024,by:"Mabel Marín",co:"Centro Cultural de España",g:"2020s",own:true,slug:"las-cortes-de-la-muerte",img:""},
+{t:"Las Cortes de la Muerte",yr:2024,by:"Mabel Marín",co:"Centro Cultural de España",g:"2020s",own:true,slug:"las-cortes-de-la-muerte",img:"assets/img/obras/las-cortes/afiche-1.jpg"},
 {t:"Dulcinea del Toboso. ¿Herstoria?",yr:2020,by:"Catalina Murillo",co:"Teatro Nacional de Costa Rica",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_7fbb151b38db4a6dba00f7a6018f341f~mv2.jpeg/v1/crop/x_0,y_128,w_1023,h_755/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE.jpeg"},
 {t:"Irìria, La Niña Danta",yr:2019,by:"Mabel Marín",co:"BonusTeatro · PROARTES",g:"2020s",own:true,img:"https://static.wixstatic.com/media/57b89e_db7eae5015654d54884e702ca21bc72f~mv2.jpg/v1/crop/x_0,y_510,w_2000,h_1477/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE-IRIA-REDES.jpg"},
 {t:"Woolf",yr:2019,by:"Pamela Herrera",co:"Iniciativas Interdisciplinarias · CIDEA-UNA",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_4cf798ca7c914c3b9f92dc5d41f6c532~mv2.png/v1/crop/x_0,y_66,w_960,h_709/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/WOOLF-Redes%20Sociales.png"},
@@ -933,10 +937,25 @@ const DETAILS={
    t:"Las Cortes de la Muerte", yr:2024,
    role:{es:"Dirección y dramaturgia",en:"Direction & playwriting"},
    co:"Centro Cultural de España",
-   words:{es:"",en:""},           // Palabras de la directora — PENDIENTE (adjunto de Mabel)
-   synopsis:{es:"",en:""},        // Sinopsis — PENDIENTE (adjunto)
-   credits:[],                     // [{role:{es,en},name}] — PENDIENTE (adjunto)
-   logo:"", posters:[],            // assets/img/obras/las-cortes/... — PENDIENTE (adjuntos)
+   dates:{es:"19, 20, 26 y 27 de abril de 2024 · 7pm",en:"19, 20, 26 & 27 April 2024 · 7pm"},
+   frame:{es:"Proyecto FUERA DE 2024",en:"FUERA DE 2024 programme"},
+   words:{
+     es:`<p>El 9 de febrero de 2023, un gran amigo, actor, bailarín y productor, partió de este mundo. Álvaro Marenco, un arlequín con mil y una historias, dejó un vacío inmenso en la escena teatral costarricense, y me dejó con una promesa por cumplir.</p><p>Las últimas conversaciones y mensajes que sostuvimos fueron alrededor de una obra que el ilustre Marenco protagonizaría. Hablamos del elenco, de la música, de la trama… pero me agarró tarde. Pospuse el proyecto y de repente… ya no hubo más tiempo.</p><p>Así nació «Las Cortes de la Muerte», para pagar la promesa de la obra que no nos dio tiempo de hacer en vida. Convoqué al elenco pactado para hacer un espectáculo en torno a la muerte de su protagonista. Formamos un equipo humano que trabajó por amor a la memoria de Marenco, para honrar su legado.</p><p>El Centro Cultural de España en Costa Rica fue el cómplice aliado que nos abrió sus puertas, y Don Quijote de la Mancha fue la excusa perfecta para materializar en el escenario la lucha de un caballero andante de la escena teatral; aquel a quien algunos llamaron «loco», pero que cada paso que daba era un impulso de pasión y amor por el arte.</p><p>Un equipo de trabajo soñado: dos actores, tres actrices, dos diseñadores, un cineasta, un productor y una directora, nos juntamos para hacer un proyecto en tan solo ocho semanas.</p><p class="verbs">Planeamos · Diseñamos · Investigamos · Improvisamos · Escuchamos · Hablamos · Escribimos · Ensayamos · Lloramos · Reímos · Peleamos · Grabamos · Editamos. Llegamos a nuestros límites. Y finalmente, estrenamos.</p><p>La obra fue un éxito, una promesa cumplida que nos dejó el corazón lleno.</p><p class="sign">M.M.</p>`,
+     en:`<p>On the 9th of February 2023, a dear friend, actor, dancer and producer, left this world. Álvaro Marenco, a harlequin with a thousand and one stories, left an immense void in Costa Rican theatre, and left me with a promise to keep.</p><p>The last conversations and messages we shared were about a play the illustrious Marenco would star in. We spoke of the cast, the music, the plot… but it caught me too late. I postponed the project and suddenly… there was no more time.</p><p>That is how «Las Cortes de la Muerte» was born: to honour the promise of the play we never had time to stage in life. I called together the cast we had agreed upon to create a piece around the death of its protagonist. We formed a company that worked for the love of Marenco's memory, to honour his legacy.</p><p>The Centro Cultural de España in Costa Rica was the ally that opened its doors to us, and Don Quixote de la Mancha was the perfect excuse to bring to the stage the struggle of a knight-errant of the theatre; the one some called «mad», yet whose every step was an impulse of passion and love for art.</p><p>A dream team: two actors, three actresses, two designers, a filmmaker, a producer and a director, came together to make a project in just eight weeks.</p><p class="verbs">We planned · designed · researched · improvised · listened · talked · wrote · rehearsed · cried · laughed · fought · filmed · edited. We reached our limits. And finally, we premiered.</p><p>The play was a success, a promise kept that left our hearts full.</p><p class="sign">M.M.</p>`
+   },
+   synopsis:{
+     es:`<p>En una sala de ensayo, un grupo de actores y actrices se miran en silencio. Se encuentran ensayando una obra llamada «Las Cortes de la Muerte», basada en un episodio de «Don Quijote de la Mancha»; pero el actor protagonista, aquel que interpreta al Quijote, ha muerto.</p><p>Lo que presenciamos es un ensayo en el cual tratan de resolver la situación, lidiando con el dolor de la pérdida de su compañero y la presión del estreno. La realidad y la ficción se mezclan en una crisis artística que este grupo de intérpretes debe resolver. Es una autoficción: los actores y actrices en el escenario comparten su propia realidad, su nombre, sus sentimientos, pensamientos y acciones.</p><p>La creatividad del equipo salta a la luz con sus distintas y extrañas soluciones para sacar adelante la obra; también salen a relucir sus conflictos personales, los problemas de producción, las particularidades del actor muerto, el dolor de la pérdida, el ingenio brillante de Cervantes, y los miedos y virtudes humanas más profundas.</p><p>Al finalizar el ensayo, el elenco reconoce que la obra será un fracaso, pero que aun así vale la pena estrenarla.</p>`,
+     en:`<p>In a rehearsal room, a group of actors and actresses look at one another in silence. They are rehearsing a play called «Las Cortes de la Muerte», based on an episode of «Don Quixote de la Mancha»; but the lead actor, the one who plays Quixote, has died.</p><p>What we witness is a rehearsal in which they try to resolve the situation, wrestling with the grief of losing their companion and the pressure of opening night. Reality and fiction blend into an artistic crisis this company of performers must solve. It is an autofiction: the actors and actresses on stage share their own reality, their names, their feelings, thoughts and actions.</p><p>The team's creativity comes to light through their strange and varied solutions to carry the play forward; so too do their personal conflicts, the production problems, the quirks of the late actor, the pain of loss, Cervantes' brilliant wit, and the deepest human fears and virtues.</p><p>When the rehearsal ends, the cast admits the play will be a failure, yet that it is worth premiering all the same.</p>`
+   },
+   credits:[
+     {role:{es:"Dirección y dramaturgia",en:"Direction & playwriting"},name:"Mabel Marín"},
+     {role:{es:"Elenco",en:"Cast"},name:"Amadeo Cordero, Natalia Arias, Mar Jiménez, Daniella Valenciano, Luis Sánchez, Mabel Marín"},
+     {role:{es:"Escenografía y vestuario",en:"Set & costume design"},name:"Rodrigo David"},
+     {role:{es:"Iluminación",en:"Lighting"},name:"Katherine Bermúdez"},
+     {role:{es:"Fotografía y video",en:"Photography & video"},name:"Oscar Medina"},
+     {role:{es:"Producción",en:"Production"},name:"Uriel Morera"}
+   ],
+   logo:"", posters:["assets/img/obras/las-cortes/afiche-1.jpg","assets/img/obras/las-cortes/afiche-3.jpg","assets/img/obras/las-cortes/afiche-2.jpg"],
    process:[], team:[], show:[],   // galerías de fotos — PENDIENTE (carpetas de Drive)
    photoCredit:"Fotografía de Oscar Medina",
    videos:[
@@ -989,7 +1008,7 @@ const tv=o=>o&&typeof o==='object'?(o[LANG]||o.es||''):(o||'');
 function buildDetail(d){
   const L=LANG==='es';
   let h=`<div class="sh-hero"><div class="sh-kicker">${L?'Dirección':'Direction'} · ${d.yr}</div>
-    <h2 class="sh-title">${d.t}</h2><div class="sh-meta">${tv(d.role)?`<span><b>${L?'Rol':'Role'}</b>${tv(d.role)}</span>`:''}${d.co?`<span><b>${L?'Producción':'Company'}</b>${d.co}</span>`:''}</div></div>`;
+    <h2 class="sh-title">${d.t}</h2><div class="sh-meta">${tv(d.role)?`<span><b>${L?'Rol':'Role'}</b>${tv(d.role)}</span>`:''}${d.co?`<span><b>${L?'Estreno':'Premiere'}</b>${d.co}</span>`:''}${tv(d.dates)?`<span><b>${L?'Temporada':'Season'}</b>${tv(d.dates)}</span>`:''}${tv(d.frame)?`<span><b>${L?'Marco':'Programme'}</b>${tv(d.frame)}</span>`:''}</div></div>`;
   if(tv(d.words))    h+=`<div class="sh-sec"><div class="sh-lbl">${L?'Palabras de la directora':'Director’s note'}</div><div class="sh-words">${tv(d.words)}</div></div>`;
   if(tv(d.synopsis)) h+=`<div class="sh-sec"><div class="sh-lbl">${L?'Sinopsis':'Synopsis'}</div><div class="sh-syn">${tv(d.synopsis)}</div></div>`;
   const imgs=[...(d.logo?[d.logo]:[]),...(d.posters||[])];
