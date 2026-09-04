@@ -312,10 +312,25 @@ footer p{color:var(--ink-mute);font-size:.8rem;letter-spacing:.06em}
 footer .made{margin-top:10px;font-size:.7rem;color:rgba(154,144,120,.55)}
 
 /* lightbox */
-.lb{position:fixed;inset:0;background:rgba(18,22,26,.96);z-index:210;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+.lb{position:fixed;inset:0;background:rgba(12,16,19,.97);z-index:400;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+.lb[hidden]{display:none}
 .lb.on{display:flex;animation:fadeIn .3s}
-.lb img{max-width:90vw;max-height:88vh;object-fit:contain;filter:none}
-.lb .x{position:absolute;top:26px;right:32px;color:var(--ink);font-size:2rem;cursor:pointer;font-family:var(--serif)}
+.lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;cursor:default;max-width:92vw}
+.lb img{max-width:min(92vw,1400px);max-height:82vh;object-fit:contain;filter:none;border-radius:2px}
+.lb .x{position:absolute;top:22px;right:26px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(15,20,23,.7);color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer;font-family:var(--serif);
+  transition:background .3s,color .3s,border-color .3s,transform .4s var(--ease-2)}
+.lb .x:hover{background:var(--gold-bright);color:var(--bg);border-color:var(--gold-bright);transform:rotate(90deg)}
+.lb-arrow{flex:0 0 auto;width:52px;height:52px;margin:0 clamp(4px,2vw,26px);border-radius:50%;cursor:pointer;
+  border:1px solid var(--line);background:rgba(15,20,23,.6);color:var(--ink);font-size:1.9rem;line-height:1;font-family:var(--serif);
+  transition:background .35s,color .35s,border-color .35s}
+.lb-arrow:hover{background:var(--gold-bright);color:var(--bg);border-color:var(--gold-bright)}
+.lb-arrow[hidden]{display:none}
+.lb-cap{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:center;
+  font-size:.72rem;letter-spacing:.12em;color:var(--ink-mute)}
+.lb-cap .n{color:var(--gold-bright);font-variant-numeric:tabular-nums}
+.lb-cap .c{color:var(--apoyo)}
+@media(max-width:640px){ .lb{padding:16px} .lb-arrow{width:42px;height:42px;margin:0 4px;font-size:1.5rem} }
 
 /* ===== Bloque 4 — scroll FX helpers ===== */
 .award-rule{display:block;width:120px;max-width:62%;height:4px;margin-top:14px;overflow:visible}
@@ -525,6 +540,7 @@ footer .made{color:rgba(148,160,160,.5)}
 .sheet-close:hover{background:var(--gold-bright);color:var(--bg);border-color:var(--gold-bright);transform:rotate(90deg)}
 .sheet-body{padding:0 clamp(28px,5vw,66px) 110px}
 .sh-hero{padding:64px 0 40px;border-bottom:1px solid var(--line-soft)}
+.sh-mark{display:block;max-width:min(240px,52%);max-height:150px;object-fit:contain;object-position:left center;margin-bottom:30px}
 .sh-kicker{font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--apoyo);display:flex;gap:12px;align-items:center;margin-bottom:20px}
 .sh-kicker::before{content:"";width:26px;height:1px;background:var(--apoyo)}
 .sh-title{font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,7vw,4.4rem);line-height:.94;color:var(--ink);letter-spacing:.005em}
@@ -551,13 +567,63 @@ footer .made{color:rgba(148,160,160,.5)}
 .sh-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .sh-posters{display:flex;gap:16px;flex-wrap:wrap}
 .sh-posters img{height:clamp(220px,40vh,360px);border-radius:4px;border:1px solid var(--line);cursor:zoom-in}
-.sh-gal{columns:2;column-gap:14px}
-.sh-gal img{width:100%;margin-bottom:14px;border-radius:4px;border:1px solid var(--line-soft);cursor:zoom-in;break-inside:avoid}
-.sh-photo-credit{margin-top:18px;font-size:.72rem;letter-spacing:.08em;color:var(--ink-mute)}
 .sh-pending{color:var(--ink-mute);font-size:.94rem;font-style:italic;line-height:1.6}
 body.sheet-open{overflow:hidden}
 
-@media(max-width:600px){ .sh-credits{grid-template-columns:1fr} .sh-gal{columns:1} }
+/* ===== Tarea 3 · Menú de la ficha — índice pegajoso de secciones ===== */
+.sh-nav{position:sticky;top:0;z-index:5;margin:0 calc(clamp(28px,5vw,66px) * -1);
+  background:rgba(15,20,23,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.sh-nav::before,.sh-nav::after{content:"";position:absolute;top:0;bottom:1px;width:38px;pointer-events:none;z-index:2}
+.sh-nav::before{left:0;background:linear-gradient(90deg,rgba(15,20,23,.96),rgba(15,20,23,0))}
+.sh-nav::after{right:0;background:linear-gradient(270deg,rgba(15,20,23,.96),rgba(15,20,23,0))}
+.sh-nav-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  padding:11px clamp(28px,5vw,66px);padding-right:82px;scroll-behavior:smooth}
+.sh-nav-in::-webkit-scrollbar{display:none}
+.sh-nav button{flex:0 0 auto;background:none;border:0;cursor:pointer;font-family:var(--sans);font-weight:300;
+  font-size:.615rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);
+  padding:9px 13px;position:relative;transition:color .35s var(--ease)}
+.sh-nav button:hover{color:var(--ink)}
+.sh-nav button.on{color:var(--gold-bright)}
+.sh-nav button::after{content:"";position:absolute;left:13px;right:13px;bottom:3px;height:1px;background:var(--gold-bright);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.sh-nav button.on::after{transform:scaleX(1)}
+.sh-sec{scroll-margin-top:62px}
+
+/* ===== Galerías de la ficha ===== */
+.sh-gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.sh-gal.tall{grid-template-columns:repeat(3,1fr)}
+.sh-gal figure{margin:0;position:relative;overflow:hidden;border-radius:4px;aspect-ratio:var(--ar,1.5);
+  border:1px solid var(--line-soft);background:var(--bg-2);cursor:zoom-in}
+.sh-gal figure img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),filter .7s var(--ease)}
+.sh-gal figure::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 58%,rgba(9,12,14,.42));opacity:0;transition:opacity .5s var(--ease)}
+.sh-gal figure:hover img{transform:scale(1.045)}
+.sh-gal figure:hover::after{opacity:1}
+.sh-gal figure:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+.sh-gal figure[hidden]{display:none}
+.sh-more{margin-top:8px;display:inline-flex;align-items:center;gap:10px;background:none;cursor:pointer;
+  border:1px solid var(--line);color:var(--ink-soft);font-family:var(--sans);font-weight:300;
+  font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;padding:12px 20px;border-radius:2px;
+  transition:border-color .4s,color .4s,background .4s}
+.sh-more:hover{border-color:var(--gold-bright);color:var(--gold-bright);background:rgba(95,178,182,.06)}
+.sh-photo-credit{margin-top:18px;font-size:.72rem;letter-spacing:.08em;color:var(--ink-mute)}
+.sh-photo-credit b{color:var(--apoyo);font-weight:400}
+
+/* ===== Equipo — retratos con nombre y oficio ===== */
+.sh-team{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:18px 16px}
+.sh-team figure{margin:0;cursor:zoom-in}
+.sh-team .ph{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:4px;
+  border:1px solid var(--line-soft);background:var(--bg-2)}
+.sh-team img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) contrast(1.03);
+  transition:transform 1.1s var(--ease),filter .7s var(--ease)}
+.sh-team figure:hover img{transform:scale(1.06);filter:none}
+.sh-team figcaption{padding-top:11px}
+.sh-team .nm{display:block;font-family:var(--serif);font-size:1.08rem;line-height:1.15;color:var(--ink)}
+.sh-team .rl{display:block;font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--apoyo);margin-top:5px}
+
+@media(max-width:600px){ .sh-credits{grid-template-columns:1fr}
+  .sh-gal{grid-template-columns:1fr} .sh-gal.tall{grid-template-columns:repeat(2,1fr)}
+  .sh-team{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))} }
 
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:50px}
@@ -738,7 +804,8 @@ body.sheet-open{overflow:hidden}
     </div>
     <div class="filters rv" id="dirFilters">
       <button class="active" data-f="all" data-es="Todas" data-en="All">Todas</button>
-      <button data-f="2020s">2018–2020</button>
+      <button data-f="ficha" data-es="Con ficha" data-en="With detail">Con ficha</button>
+      <button data-f="2020s">2018–2024</button>
       <button data-f="2015s">2015–2017</button>
       <button data-f="early">2008–2013</button>
       <button data-f="own" data-es="Texto propio" data-en="Own text">Texto propio</button>
@@ -856,13 +923,17 @@ body.sheet-open{overflow:hidden}
   </div>
 </div>
 
-<div class="lb" id="lightbox" onclick="this.classList.remove('on')">
-  <span class="x">×</span><img id="lbImg" src="" alt="" />
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de fotos" hidden>
+  <button class="x" id="lbClose" type="button" aria-label="Cerrar">×</button>
+  <button class="lb-arrow prev" id="lbPrev" type="button" aria-label="Anterior">‹</button>
+  <figure class="lb-fig"><img id="lbImg" alt=""><figcaption class="lb-cap" id="lbCap"></figcaption></figure>
+  <button class="lb-arrow next" id="lbNext" type="button" aria-label="Siguiente">›</button>
 </div>
 
 <script>
 const DIRECTING=[
 {t:"Las Cortes de la Muerte",yr:2024,by:"Mabel Marín",co:"Centro Cultural de España",g:"2020s",own:true,slug:"las-cortes-de-la-muerte",img:"assets/img/obras/las-cortes/afiche-1.jpg"},
+{t:"AHORA",yr:2023,co:"BonusTeatro",g:"2020s",slug:"ahora",img:"assets/img/obras/ahora/espectaculo/sm/02.jpg"},
 {t:"Dulcinea del Toboso. ¿Herstoria?",yr:2020,by:"Catalina Murillo",co:"Teatro Nacional de Costa Rica",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_7fbb151b38db4a6dba00f7a6018f341f~mv2.jpeg/v1/crop/x_0,y_128,w_1023,h_755/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE.jpeg"},
 {t:"Irìria, La Niña Danta",yr:2019,by:"Mabel Marín",co:"BonusTeatro · PROARTES",g:"2020s",own:true,img:"https://static.wixstatic.com/media/57b89e_db7eae5015654d54884e702ca21bc72f~mv2.jpg/v1/crop/x_0,y_510,w_2000,h_1477/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE-IRIA-REDES.jpg"},
 {t:"Woolf",yr:2019,by:"Pamela Herrera",co:"Iniciativas Interdisciplinarias · CIDEA-UNA",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_4cf798ca7c914c3b9f92dc5d41f6c532~mv2.png/v1/crop/x_0,y_66,w_960,h_709/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/WOOLF-Redes%20Sociales.png"},
@@ -955,15 +1026,54 @@ const DETAILS={
      {role:{es:"Fotografía y video",en:"Photography & video"},name:"Oscar Medina"},
      {role:{es:"Producción",en:"Production"},name:"Uriel Morera"}
    ],
-   logo:"", posters:["assets/img/obras/las-cortes/afiche-1.jpg","assets/img/obras/las-cortes/afiche-3.jpg","assets/img/obras/las-cortes/afiche-2.jpg"],
-   process:[], team:[], show:[],   // galerías de fotos — PENDIENTE (carpetas de Drive)
-   photoCredit:"Fotografía de Oscar Medina",
+   mark:"assets/img/obras/las-cortes/logo-dark.png",   /* versión crema del logo, recortada, para fondo oscuro */
+   posters:["assets/img/obras/las-cortes/afiche-1.jpg","assets/img/obras/las-cortes/afiche-3.jpg","assets/img/obras/las-cortes/afiche-2.jpg"],
+   trailer:{id:"12I4oSvxkPWEt0fkR7UqIFoGITo_wGd7C"},
    videos:[
      {label:{es:"Proceso · Primera etapa",en:"Process · Stage one"},id:"1cazfdTXXJYaw8OAABX9uoaxz6gO-uhqf"},
      {label:{es:"Proceso · Segunda etapa",en:"Process · Stage two"},id:"1rhBAaCO-C8oz8W28urpd9AU7qboLuv_U"},
      {label:{es:"Proceso · Tercera etapa",en:"Process · Stage three"},id:"15Zl-sWSf9R921y30ZFW7QoYtgvlsN0wa"}
    ],
-   trailer:{id:"12I4oSvxkPWEt0fkR7UqIFoGITo_wGd7C"}
+   team:{dir:"assets/img/obras/las-cortes/equipo",credit:"Oscar Medina",people:[
+     {n:"Amadeo Cordero",   r:{es:"Sancho",en:"Sancho"}},
+     {n:"Daniella Valenciano",r:{es:"La Reina",en:"The Queen"}},
+     {n:"Katherine Bermúdez",r:{es:"Iluminación",en:"Lighting"}},
+     {n:"Luis Sánchez",     r:{es:"La Muerte",en:"Death"}},
+     {n:"Mabel Marín",      r:{es:"La Directora",en:"The Director"}},
+     {n:"Mar Jiménez",      r:{es:"El Ángel",en:"The Angel"}},
+     {n:"Natalia Arias",    r:{es:"El Diablo",en:"The Devil"}},
+     {n:"Oscar Medina",     r:{es:"Fotografía y video",en:"Photography & video"}},
+     {n:"Rodrigo David",    r:{es:"Escenografía y vestuario",en:"Set & costume"}},
+     {n:"Uriel Morera",     r:{es:"Producción",en:"Production"}}
+   ]},
+   galleries:[
+     {id:"proceso",lbl:{es:"El proceso",en:"The process"},dir:"assets/img/obras/las-cortes/proceso",n:24,ar:1.5,credit:"Oscar Medina"},
+     {id:"espectaculo",lbl:{es:"El espectáculo",en:"The show"},dir:"assets/img/obras/las-cortes/espectaculo",n:24,ar:1.5,credit:"Oscar Medina"}
+   ]
+ },
+
+ /* ===== Entrega 3 · AHORA (2023) — dirección.
+    Palabras de la directora, sinopsis, créditos y afiches llegan en el .docx de Mabel;
+    las secciones aparecen solas en cuanto se peguen aquí. ===== */
+ "ahora":{
+   t:"AHORA", yr:2023,
+   role:{es:"Dirección",en:"Direction"},
+   co:"BonusTeatro",
+   words:{es:"",en:""},
+   synopsis:{es:"",en:""},
+   credits:[],
+   mark:"", posters:[],
+   trailer:{id:"1KObYGPRzSS5g3HGnfRVGxzQVKk_e6W4S"},
+   videos:[
+     {label:{es:"Promocional 1",en:"Promo 1"},id:"1Hqy0D7cUAeR02EL8tqYuAHz7zxT_UPCS"},
+     {label:{es:"Promocional 2",en:"Promo 2"},id:"1dB1kWE3cWbrIfnnCcCwSL3XPzKbXbL7q"},
+     {label:{es:"Promocional 3",en:"Promo 3"},id:"1yXCuNJ9VZgifUesWpqnsPaY2-yf7Jc3B"}
+   ],
+   videosLbl:{es:"Promocionales",en:"Promos"},
+   galleries:[
+     {id:"proceso",lbl:{es:"El proceso",en:"The process"},dir:"assets/img/obras/ahora/proceso",n:17,ar:1.5,credit:"Jorge Mario Zuleta"},
+     {id:"espectaculo",lbl:{es:"El espectáculo",en:"The show"},dir:"assets/img/obras/ahora/espectaculo",n:22,ar:0.75,credit:"Paola Cabrera"}
+   ]
  }
 };
 let LANG='es',curFilter='all';
@@ -975,13 +1085,20 @@ function setLang(l){
   document.getElementById('en').setAttribute('aria-pressed',l==='en');
   document.querySelectorAll('[data-es]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v});
   document.querySelectorAll('[data-es-ph]').forEach(el=>{const v=el.getAttribute('data-'+l+'-ph');if(v)el.placeholder=v});
-  render();buildWA&&0;
+  render();
+  /* si hay una ficha abierta, se vuelve a armar en el idioma nuevo */
+  if(typeof curSlug!=='undefined'&&curSlug&&!document.getElementById('sheet').hidden){
+    const p=document.getElementById('sheetPanel'),y=p.scrollTop;
+    document.getElementById('sheetBody').innerHTML=buildDetail(DETAILS[curSlug],curSlug);
+    initSheetNav(); p.scrollTop=y;
+  }
 }
 function render(){
   const tagTxt=LANG==='es'?'Texto propio':'Own text';
   document.getElementById('worksGrid').innerHTML=DIRECTING.filter(w=>{
-    if(curFilter==='all')return true;if(curFilter==='own')return w.own;return w.g===curFilter;
-  }).map(w=>{const has=w.slug&&DETAILS[w.slug];return `<div class="work${has?' has-detail':''}"${w.slug?` data-slug="${w.slug}"`:''}><div class="work-img"><span class="yr">${w.yr}</span>${w.img?`<img loading="lazy" src="${w.img}" alt="${w.t}">`:`<div class="work-ph"><span>${w.t}</span></div>`}${has?`<span class="work-open">${LANG==='es'?'Ver ficha':'View'} ↗</span>`:''}</div><div class="work-body"><h3>${w.t}</h3><div class="work-meta"><span class="by">${w.by}</span><br>${w.co}</div>${w.own?`<span class="tag">${tagTxt}</span>`:''}</div></div>`}).join('');
+    if(curFilter==='all')return true;if(curFilter==='own')return w.own;
+    if(curFilter==='ficha')return !!(w.slug&&DETAILS[w.slug]);return w.g===curFilter;
+  }).map(w=>{const has=w.slug&&DETAILS[w.slug];return `<div class="work${has?' has-detail':''}"${w.slug?` data-slug="${w.slug}"`:''}${has?` tabindex="0" role="button" aria-label="${LANG==='es'?'Ver ficha de':'Open detail for'} ${w.t}"`:''}><div class="work-img"><span class="yr">${w.yr}</span>${w.img?`<img loading="lazy" src="${w.img}" alt="${w.t}">`:`<div class="work-ph"><span>${w.t}</span></div>`}${has?`<span class="work-open">${LANG==='es'?'Ver ficha':'View'} ↗</span>`:''}</div><div class="work-body"><h3>${w.t}</h3><div class="work-meta">${w.by?`<span class="by">${w.by}</span><br>`:''}${w.co}</div>${w.own?`<span class="tag">${tagTxt}</span>`:''}</div></div>`}).join('');
   document.getElementById('actingTimeline').innerHTML=ACTING.map(a=>`<div class="tl-item"><div class="${a.film?'tl-film':''}">${a.film?`<div class="badge">${LANG==='es'?'Cine':'Film'}</div>`:''}<div class="yr">${a.yr}</div><h3>${a.t}</h3><p><span class="by">${a.by}</span> · ${a.dir} · ${a.co}</p></div></div>`).join('');
   const dlTxt=LANG==='es'?'Leer / Descargar PDF':'Read / Download PDF';
   document.getElementById('playsGrid').innerHTML=PLAYS.map(p=>`<div class="play"><div class="play-top"><h3>${p.t}</h3><span class="yr">${p.yr}</span></div><p>${p[LANG]}</p><a class="dl" href="${p.pdf}" target="_blank" rel="noopener">${dlTxt} →</a></div>`).join('');
@@ -1000,35 +1117,157 @@ function sendMail(e){
   const m=document.getElementById('cf-msg').value;
   window.location.href=`mailto:mabelmarin86@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(m+'\n\n— '+n+' ('+em+')')}`;
 }
-function openLB(src){document.getElementById('lbImg').src=src;document.getElementById('lightbox').classList.add('on')}
+/* ===== Tarea 3 · Lightbox de galería — navegable con flechas, teclado y crédito ===== */
+const LBSETS={};                 /* clave -> {items:[{full,thumb,alt}], credit} */
+let lbKey=null,lbIdx=0,lbLastFocus=null;
+function lbShow(){
+  const set=LBSETS[lbKey]; if(!set)return;
+  const it=set.items[lbIdx],img=document.getElementById('lbImg');
+  img.src=it.full; img.alt=it.alt||'';
+  const many=set.items.length>1;
+  document.getElementById('lbPrev').hidden=!many;
+  document.getElementById('lbNext').hidden=!many;
+  document.getElementById('lbCap').innerHTML=
+    (many?`<span class="n">${lbIdx+1} / ${set.items.length}</span>`:'')+
+    (set.credit?`<span class="c">${LANG==='es'?'Fotografía de':'Photography by'} ${set.credit}</span>`:'');
+  if(many)[1,-1].forEach(d=>{const n=set.items[(lbIdx+d+set.items.length)%set.items.length];if(n){const p=new Image();p.src=n.full}});
+}
+function openLBSet(key,i){
+  if(!LBSETS[key])return;
+  lbKey=key; lbIdx=i||0;
+  const lb=document.getElementById('lightbox');
+  lbLastFocus=document.activeElement;
+  lb.hidden=false; lbShow(); lb.classList.add('on');
+  document.getElementById('lbClose').focus();
+}
+function lbStep(d){const set=LBSETS[lbKey];if(!set)return;lbIdx=(lbIdx+d+set.items.length)%set.items.length;lbShow()}
+function closeLB(){
+  const lb=document.getElementById('lightbox'); if(lb.hidden)return;
+  lb.classList.remove('on'); lb.hidden=true; lbKey=null;
+  if(lbLastFocus&&lbLastFocus.focus)lbLastFocus.focus();
+}
+/* Compatible con el uso previo: una sola imagen, o la galería del Camerino */
+function openLB(src){
+  const i=(typeof GALLERY!=='undefined'&&GALLERY.indexOf)?GALLERY.indexOf(src):-1;
+  if(i>=0){LBSETS.camerino={items:GALLERY.map(s=>({full:s,alt:'Mabel Marín'})),credit:''};openLBSet('camerino',i)}
+  else{LBSETS.una={items:[{full:src,alt:''}],credit:''};openLBSet('una',0)}
+}
+document.getElementById('lightbox').addEventListener('click',e=>{
+  const id=e.target.id;
+  if(id==='lbPrev'){lbStep(-1);return}
+  if(id==='lbNext'){lbStep(1);return}
+  if(id==='lbImg')return;
+  closeLB();
+});
 
-/* ===== Ficha de obra (Tarea 2): panel data-driven ===== */
-let sheetLastFocus=null;
+/* ===== Ficha de obra (Tarea 2 · ampliada en la 3): panel data-driven ===== */
+let sheetLastFocus=null,curSlug=null;
 const tv=o=>o&&typeof o==='object'?(o[LANG]||o.es||''):(o||'');
-function buildDetail(d){
-  const L=LANG==='es';
-  let h=`<div class="sh-hero"><div class="sh-kicker">${L?'Dirección':'Direction'} · ${d.yr}</div>
+const pad2=i=>String(i).padStart(2,'0');
+
+function buildDetail(d,slug){
+  const L=LANG==='es',secs=[];
+  const add=(id,nav,lbl,inner)=>secs.push({id,nav,html:`<section class="sh-sec" id="sec-${id}"><div class="sh-lbl">${lbl}</div>${inner}</section>`});
+
+  /* — galería reutilizable: miniaturas + "ver todas" + crédito — */
+  const VISIBLES=12;
+  const galBlock=(key,items,credit,label,ar)=>{
+    LBSETS[key]={items,credit:credit||''};
+    const figs=items.map((it,i)=>`<figure${i>=VISIBLES?' hidden':''} tabindex="0" role="button" aria-label="${L?'Ampliar foto':'Enlarge photo'} ${i+1}" data-lb="${key}" data-i="${i}"><img loading="lazy" src="${it.thumb}" alt="${it.alt}"></figure>`).join('');
+    const more=items.length>VISIBLES?`<button class="sh-more" type="button" data-more="${key}">${L?'Ver las':'See all'} ${items.length} ${L?'fotos':'photos'}<span aria-hidden="true">↓</span></button>`:'';
+    const cr=credit?`<div class="sh-photo-credit">${L?'Fotografía de':'Photography by'} <b>${credit}</b></div>`:'';
+    return `<div class="sh-gal${ar&&ar<1?' tall':''}" id="gal-${key}" style="--ar:${ar||1.5}" aria-label="${label}">${figs}</div>${more}${cr}`;
+  };
+
+  if(tv(d.words))    add('palabras',L?'Palabras':'Note',L?'Palabras de la directora':'Director’s note',`<div class="sh-words">${tv(d.words)}</div>`);
+  if(tv(d.synopsis)) add('sinopsis',L?'Sinopsis':'Synopsis',L?'Sinopsis':'Synopsis',`<div class="sh-syn">${tv(d.synopsis)}</div>`);
+
+  const posters=(d.posters||[]);
+  if(posters.length){
+    LBSETS[slug+'-afiche']={items:posters.map(s=>({full:s,alt:d.t})),credit:''};
+    add('afiche',L?'Afiche':'Poster',L?'Afiche':'Poster',
+      `<div class="sh-posters">${posters.map((s,i)=>`<img src="${s}" alt="${d.t}" data-lb="${slug+'-afiche'}" data-i="${i}">`).join('')}</div>`);
+  }
+  if((d.credits||[]).length)
+    add('creditos',L?'Créditos':'Credits',L?'Créditos':'Credits',
+      `<div class="sh-credits">${d.credits.map(c=>`<div class="sh-credit"><span class="r">${tv(c.role)}</span><span class="n">${c.name}</span></div>`).join('')}</div>`);
+
+  const frame=(lbl,id)=>`<div class="sh-video">${lbl?`<div class="vlbl">${lbl}</div>`:''}<div class="vframe"><iframe loading="lazy" title="${lbl||'Video'}" src="https://drive.google.com/file/d/${id}/preview" allow="autoplay" allowfullscreen></iframe></div></div>`;
+  if(d.trailer&&d.trailer.id) add('trailer','Trailer','Trailer',`<div class="sh-videos">${frame('',d.trailer.id)}</div>`);
+  if((d.videos||[]).length){
+    const vl=tv(d.videosLbl)||(L?'El proceso en video':'The process on film');
+    add('videos',tv(d.videosLbl)||(L?'Video':'Video'),vl,`<div class="sh-videos">${d.videos.map(v=>frame(tv(v.label),v.id)).join('')}</div>`);
+  }
+
+  if(d.team&&(d.team.people||[]).length){
+    const key=slug+'-equipo';
+    const items=d.team.people.map((p,i)=>({full:`${d.team.dir}/${pad2(i+1)}.jpg`,thumb:`${d.team.dir}/sm/${pad2(i+1)}.jpg`,alt:p.n}));
+    LBSETS[key]={items,credit:d.team.credit||''};
+    const cards=items.map((it,i)=>{const p=d.team.people[i];
+      return `<figure tabindex="0" role="button" aria-label="${p.n} — ${tv(p.r)}" data-lb="${key}" data-i="${i}"><div class="ph"><img loading="lazy" src="${it.thumb}" alt="${p.n}"></div><figcaption><span class="nm">${p.n}</span><span class="rl">${tv(p.r)}</span></figcaption></figure>`}).join('');
+    const cr=d.team.credit?`<div class="sh-photo-credit">${L?'Fotografía de':'Photography by'} <b>${d.team.credit}</b></div>`:'';
+    add('equipo',L?'Equipo':'Team',L?'El equipo':'The team',`<div class="sh-team">${cards}</div>${cr}`);
+  }
+
+  (d.galleries||[]).forEach(g=>{
+    if(!g.n)return;
+    const key=slug+'-'+g.id,items=[];
+    for(let i=1;i<=g.n;i++)items.push({full:`${g.dir}/${pad2(i)}.jpg`,thumb:`${g.dir}/sm/${pad2(i)}.jpg`,alt:`${d.t} — ${tv(g.lbl)}`});
+    add(g.id,tv(g.lbl),tv(g.lbl),galBlock(key,items,g.credit,tv(g.lbl),g.ar));
+  });
+
+  /* — cabecera — */
+  let h=`<div class="sh-hero">${d.mark?`<img class="sh-mark" src="${d.mark}" alt="${d.t}">`:''}
+    <div class="sh-kicker">${L?'Dirección':'Direction'} · ${d.yr}</div>
     <h2 class="sh-title">${d.t}</h2><div class="sh-meta">${tv(d.role)?`<span><b>${L?'Rol':'Role'}</b>${tv(d.role)}</span>`:''}${d.co?`<span><b>${L?'Estreno':'Premiere'}</b>${d.co}</span>`:''}${tv(d.dates)?`<span><b>${L?'Temporada':'Season'}</b>${tv(d.dates)}</span>`:''}${tv(d.frame)?`<span><b>${L?'Marco':'Programme'}</b>${tv(d.frame)}</span>`:''}</div></div>`;
-  if(tv(d.words))    h+=`<div class="sh-sec"><div class="sh-lbl">${L?'Palabras de la directora':'Director’s note'}</div><div class="sh-words">${tv(d.words)}</div></div>`;
-  if(tv(d.synopsis)) h+=`<div class="sh-sec"><div class="sh-lbl">${L?'Sinopsis':'Synopsis'}</div><div class="sh-syn">${tv(d.synopsis)}</div></div>`;
-  const imgs=[...(d.logo?[d.logo]:[]),...(d.posters||[])];
-  if(imgs.length)    h+=`<div class="sh-sec"><div class="sh-lbl">${L?'Afiche':'Poster'}</div><div class="sh-posters">${imgs.map(s=>`<img src="${s}" alt="${d.t}" onclick="openLB('${s}')">`).join('')}</div></div>`;
-  if((d.credits||[]).length) h+=`<div class="sh-sec"><div class="sh-lbl">${L?'Créditos':'Credits'}</div><div class="sh-credits">${d.credits.map(c=>`<div class="sh-credit"><span class="r">${tv(c.role)}</span><span class="n">${c.name}</span></div>`).join('')}</div></div>`;
-  if(d.trailer&&d.trailer.id) h+=`<div class="sh-sec"><div class="sh-lbl">Trailer</div><div class="sh-videos"><div class="sh-video"><div class="vframe"><iframe loading="lazy" src="https://drive.google.com/file/d/${d.trailer.id}/preview" allow="autoplay" allowfullscreen></iframe></div></div></div></div>`;
-  if((d.videos||[]).length) h+=`<div class="sh-sec"><div class="sh-lbl">${L?'El proceso':'The process'}</div><div class="sh-videos">${d.videos.map(v=>`<div class="sh-video"><div class="vlbl">${tv(v.label)}</div><div class="vframe"><iframe loading="lazy" src="https://drive.google.com/file/d/${v.id}/preview" allow="autoplay" allowfullscreen></iframe></div></div>`).join('')}</div></div>`;
-  const gal=(lbl,arr)=>arr&&arr.length?`<div class="sh-sec"><div class="sh-lbl">${lbl}</div><div class="sh-gal">${arr.map(s=>`<img loading="lazy" src="${s}" alt="${d.t}" onclick="openLB('${s}')">`).join('')}</div>${d.photoCredit?`<div class="sh-photo-credit">${d.photoCredit}</div>`:''}</div>`:'';
-  h+=gal(L?'Fotos del proceso':'Process photos',d.process)+gal(L?'El equipo':'The team',d.team)+gal(L?'El espectáculo':'The show',d.show);
-  if(!tv(d.synopsis)&&!imgs.length) h+=`<div class="sh-sec"><p class="sh-pending">${L?'Sinopsis, afiche, créditos y fotos en preparación — pronto disponibles.':'Synopsis, poster, credits and photos coming soon.'}</p></div>`;
+
+  /* — menú de la ficha: índice de lo que trae esta obra — */
+  if(secs.length>1)
+    h+=`<nav class="sh-nav" aria-label="${L?'Secciones de la ficha':'Sections of this record'}"><div class="sh-nav-in">${
+      secs.map((s,i)=>`<button type="button" data-go="sec-${s.id}"${i===0?' class="on"':''}>${s.nav}</button>`).join('')}</div></nav>`;
+
+  h+=secs.map(s=>s.html).join('');
+  if(!tv(d.synopsis)&&!posters.length)
+    h+=`<div class="sh-sec"><p class="sh-pending">${L?'Palabras de la directora, sinopsis, créditos y afiche en preparación — pronto disponibles.':'Director’s note, synopsis, credits and poster coming soon.'}</p></div>`;
   return h;
 }
+
+/* — menú pegajoso: salta a la sección y marca dónde vamos — */
+function initSheetNav(){
+  const panel=document.getElementById('sheetPanel'),nav=panel.querySelector('.sh-nav');
+  if(!nav)return;
+  const inner=nav.querySelector('.sh-nav-in'),btns=[...inner.querySelectorAll('button')];
+  const els=btns.map(b=>document.getElementById(b.dataset.go));
+  const soft=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  btns.forEach((b,i)=>b.addEventListener('click',()=>{
+    const el=els[i]; if(!el)return;
+    panel.scrollTo({top:el.offsetTop-nav.offsetHeight-14,behavior:soft?'smooth':'auto'});
+  }));
+  let last=-1,queued=false;
+  const spy=()=>{
+    queued=false;
+    const y=panel.scrollTop+nav.offsetHeight+30; let cur=0;
+    els.forEach((el,i)=>{if(el&&el.offsetTop<=y)cur=i});
+    if(cur===last)return;
+    last=cur;
+    btns.forEach((b,i)=>b.classList.toggle('on',i===cur));
+    const a=btns[cur];
+    if(a)inner.scrollTo({left:a.offsetLeft-inner.clientWidth/2+a.offsetWidth/2,behavior:soft?'smooth':'auto'});
+  };
+  panel.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(spy)}},{passive:true});
+  spy();
+}
+
 function openDetail(slug){
   const d=DETAILS[slug]; if(!d)return;
-  const sheet=document.getElementById('sheet'), body=document.getElementById('sheetBody');
-  body.innerHTML=buildDetail(d);
+  curSlug=slug;
+  const sheet=document.getElementById('sheet'),body=document.getElementById('sheetBody');
+  body.innerHTML=buildDetail(d,slug);
   document.body.classList.add('sheet-open'); sheet.hidden=false;
   document.getElementById('sheetPanel').scrollTop=0;
   requestAnimationFrame(()=>sheet.classList.add('on'));
   sheetLastFocus=document.activeElement; document.getElementById('sheetClose').focus();
+  initSheetNav();
   try{ if(('#obra='+slug)!==location.hash) history.pushState({slug},'','#obra='+slug); }catch(e){}
   if(window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches)
     gsap.from(body.querySelectorAll('.sh-hero,.sh-sec'),{y:26,autoAlpha:0,duration:.6,stagger:.07,ease:'power2.out',delay:.2});
@@ -1036,13 +1275,44 @@ function openDetail(slug){
 function closeSheet(fromPop){
   const sheet=document.getElementById('sheet'); if(sheet.hidden)return;
   sheet.classList.remove('on'); document.body.classList.remove('sheet-open');
+  curSlug=null;
   setTimeout(()=>{ sheet.hidden=true; document.getElementById('sheetBody').innerHTML=''; },600);
   if(sheetLastFocus&&sheetLastFocus.focus)sheetLastFocus.focus();
   if(!fromPop){ try{ if(location.hash.indexOf('#obra=')===0) history.pushState({},'',location.pathname+location.search); }catch(e){} }
 }
-document.getElementById('worksGrid').addEventListener('click',e=>{ const w=e.target.closest('.work.has-detail'); if(w&&w.dataset.slug)openDetail(w.dataset.slug); });
-document.getElementById('sheet').addEventListener('click',e=>{ if(e.target.dataset&&e.target.dataset.close!==undefined)closeSheet(); });
-addEventListener('keydown',e=>{ if(e.key==='Escape')closeSheet(); });
+const openWork=el=>{ if(el&&el.dataset.slug)openDetail(el.dataset.slug) };
+document.getElementById('worksGrid').addEventListener('click',e=>openWork(e.target.closest('.work.has-detail')));
+document.getElementById('worksGrid').addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  const w=e.target.closest('.work.has-detail'); if(!w)return;
+  e.preventDefault(); openWork(w);
+});
+/* delegación dentro de la ficha: cerrar, ampliar fotos, ver galería completa */
+document.getElementById('sheet').addEventListener('click',e=>{
+  const t=e.target;
+  const lb=t.closest('[data-lb]');
+  if(lb){ openLBSet(lb.dataset.lb,+lb.dataset.i); return; }
+  const more=t.closest('[data-more]');
+  if(more){
+    document.querySelectorAll(`#gal-${more.dataset.more} figure[hidden]`).forEach(f=>f.hidden=false);
+    more.remove(); return;
+  }
+  if(t.dataset&&t.dataset.close!==undefined)closeSheet();
+});
+document.getElementById('sheet').addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  const lb=e.target.closest('[data-lb]'); if(!lb)return;
+  e.preventDefault(); openLBSet(lb.dataset.lb,+lb.dataset.i);
+});
+addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').hidden){
+    if(e.key==='Escape')closeLB();
+    else if(e.key==='ArrowRight')lbStep(1);
+    else if(e.key==='ArrowLeft')lbStep(-1);
+    return;
+  }
+  if(e.key==='Escape')closeSheet();
+});
 addEventListener('popstate',()=>{ const h=location.hash; if(h.indexOf('#obra=')===0){ const s=h.slice(6); if(DETAILS[s]){openDetail(s);return;} } closeSheet(true); });
 addEventListener('DOMContentLoaded',()=>{ const h=location.hash; if(h.indexOf('#obra=')===0){ const s=h.slice(6); if(DETAILS[s])setTimeout(()=>openDetail(s),400); } });
 
