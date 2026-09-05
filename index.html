@@ -408,7 +408,7 @@ section{padding:clamp(96px,15vh,158px) 0}
 .work-body h3{color:var(--ink)}
 
 /* — Retrato del hero: marco de latón + placa "En escena" — */
-.hero-portrait .frame{inset:-15px;border:1px solid rgba(198,161,91,.32);transform:translate(18px,18px)}
+.hero-portrait .frame{inset:-13px;border:1px solid rgba(198,161,91,.32);transform:translate(15px,15px)}
 .hero-portrait.go .frame{transform:translate(12px,12px)}
 .hero-portrait .ph{border:1px solid rgba(198,161,91,.4);border-radius:2px}
 .hero-portrait::after{content:"En escena";position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);z-index:5;
@@ -625,6 +625,22 @@ body.sheet-open{overflow:hidden}
   .sh-gal{grid-template-columns:1fr} .sh-gal.tall{grid-template-columns:repeat(2,1fr)}
   .sh-team{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))} }
 
+/* El menú completo pide ~900px de ancho: por debajo de eso los últimos enlaces
+   y el conmutador ES/EN quedaban fuera de la pantalla. Aquí pasa a menú
+   desplegable, en columna y a todo el ancho de la barra. */
+@media(max-width:940px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;padding:6px 0 14px;
+    background:rgba(15,20,23,.97);backdrop-filter:blur(18px);
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line)}
+  nav.menu-open .nav-links{display:flex}
+  .nav-links a{padding:14px clamp(20px,4vw,30px);font-size:.76rem}
+  .nav-links a::after{display:none}
+  .nav-links a:focus-visible{outline-offset:-2px}
+  .lang-toggle{align-self:flex-start;margin:12px clamp(20px,4vw,30px) 0}
+}
+
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:50px}
   .hero-portrait{max-width:400px;order:-1}
@@ -640,8 +656,6 @@ body.sheet-open{overflow:hidden}
 @media(max-width:600px){
   .wrap{padding:0 20px}
   nav{padding:15px 20px}
-  .nav-links{display:none}
-  .nav-toggle{display:block}
   .works,.disc-grid{grid-template-columns:1fr}
   .gallery{columns:1}
   .acad-item{grid-template-columns:1fr;gap:12px}
@@ -649,6 +663,16 @@ body.sheet-open{overflow:hidden}
   section{padding:90px 0}
   .stat{padding:40px 14px}
   .spot{display:none}
+  /* el marco desplazado del retrato se salía del ancho y hacía scrollear la página de lado */
+  .hero-portrait .frame{inset:-9px;transform:translate(9px,9px)}
+  .hero-portrait.go .frame{transform:translate(6px,6px)}
+  /* «Intermedio — RECONOCIMIENTOS» no cabía en una línea con ese interletrado */
+  .act-label{flex-wrap:wrap;gap:12px}
+  .act-label .ln{flex:0 0 28px}
+  .act-label .tag{letter-spacing:.22em;font-size:.66rem}
+  /* «Reconocimientos» es una sola palabra: al piso anterior del clamp se le
+     cortaban 31px contra el borde. Baja el piso y sube la pendiente en vw. */
+  .sec-title{font-size:clamp(2.05rem,8.6vw,2.9rem)}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -690,7 +714,7 @@ body.sheet-open{overflow:hidden}
       <button id="en" onclick="setLang('en')" aria-pressed="false" lang="en">EN</button>
     </div>
   </div>
-  <button class="nav-toggle" aria-label="Menú" onclick="var n=document.getElementById('navLinks');n.style.display=(getComputedStyle(n).display==='none')?'flex':'none'">≡</button>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="navLinks">≡</button>
 </nav>
 
 <main id="main">
@@ -1336,6 +1360,13 @@ addEventListener('popstate',()=>{ const h=location.hash; if(h.indexOf('#obra=')=
 addEventListener('DOMContentLoaded',()=>{ const h=location.hash; if(h.indexOf('#obra=')===0){ const s=h.slice(6); if(DETAILS[s])setTimeout(()=>openDetail(s),400); } });
 
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40)});
+
+/* ===== Menú desplegable (≤940px) ===== */
+const navEl=document.getElementById('nav'),navBtn=document.getElementById('navToggle');
+const setMenu=open=>{navEl.classList.toggle('menu-open',open);navBtn.setAttribute('aria-expanded',open?'true':'false')};
+navBtn.addEventListener('click',()=>setMenu(!navEl.classList.contains('menu-open')));
+document.getElementById('navLinks').addEventListener('click',e=>{ if(e.target.closest('a'))setMenu(false) });
+addEventListener('keydown',e=>{ if(e.key==='Escape'&&navEl.classList.contains('menu-open')){setMenu(false);navBtn.focus()} });
 
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});
 
