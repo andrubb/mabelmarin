@@ -933,7 +933,7 @@ body.sheet-open{overflow:hidden}
 <script>
 const DIRECTING=[
 {t:"Las Cortes de la Muerte",yr:2024,by:"Mabel Marín",co:"Centro Cultural de España",g:"2020s",own:true,slug:"las-cortes-de-la-muerte",img:"assets/img/obras/las-cortes/afiche-1.jpg"},
-{t:"AHORA",yr:2023,co:"BonusTeatro",g:"2020s",slug:"ahora",img:"assets/img/obras/ahora/espectaculo/sm/02.jpg"},
+{t:"AHORA",yr:2023,by:"Mabel Marín",co:"BonusTeatro · Edificio La Alhambra",g:"2020s",own:true,slug:"ahora",img:"assets/img/obras/ahora/afiche-1.jpg"},
 {t:"Dulcinea del Toboso. ¿Herstoria?",yr:2020,by:"Catalina Murillo",co:"Teatro Nacional de Costa Rica",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_7fbb151b38db4a6dba00f7a6018f341f~mv2.jpeg/v1/crop/x_0,y_128,w_1023,h_755/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE.jpeg"},
 {t:"Irìria, La Niña Danta",yr:2019,by:"Mabel Marín",co:"BonusTeatro · PROARTES",g:"2020s",own:true,img:"https://static.wixstatic.com/media/57b89e_db7eae5015654d54884e702ca21bc72f~mv2.jpg/v1/crop/x_0,y_510,w_2000,h_1477/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/AFICHE-IRIA-REDES.jpg"},
 {t:"Woolf",yr:2019,by:"Pamela Herrera",co:"Iniciativas Interdisciplinarias · CIDEA-UNA",g:"2020s",own:false,img:"https://static.wixstatic.com/media/57b89e_4cf798ca7c914c3b9f92dc5d41f6c532~mv2.png/v1/crop/x_0,y_66,w_960,h_709/fill/w_500,h_375,al_c,q_85,enc_avif,quality_auto/WOOLF-Redes%20Sociales.png"},
@@ -1052,17 +1052,36 @@ const DETAILS={
    ]
  },
 
- /* ===== Entrega 3 · AHORA (2023) — dirección.
-    Palabras de la directora, sinopsis, créditos y afiches llegan en el .docx de Mabel;
-    las secciones aparecen solas en cuanto se peguen aquí. ===== */
+ /* ===== Entrega 3 · AHORA (2023) — dirección y dramaturgia. ===== */
  "ahora":{
    t:"AHORA", yr:2023,
-   role:{es:"Dirección",en:"Direction"},
-   co:"BonusTeatro",
-   words:{es:"",en:""},
-   synopsis:{es:"",en:""},
-   credits:[],
-   mark:"", posters:[],
+   role:{es:"Dirección y dramaturgia",en:"Direction & playwriting"},
+   co:"BonusTeatro · Edificio La Alhambra",
+   dates:{es:"29 y 30 de septiembre y 1 de octubre de 2023",en:"29 & 30 September and 1 October 2023"},
+   words:{
+     es:`<p>El teatro, como el resto de las artes, tiene la capacidad de sanar. La creación escénica siempre ha sido el espacio donde entrego mis obsesiones para, de cierta forma, curarme de ellas. En esta ocasión, más que una obsesión, le entregué a la escena un trauma. «AHORA», como mi voz lo plantea en el escenario, más que una obra de teatro es un grito.</p><p>Diez años después de haber terminado una relación en la que fui violentada de múltiples formas por mi pareja, sentí que finalmente tenía la fuerza suficiente para hablarlo, para ponerlo en escena, para sanar.</p><p>Invité a mis compañeras de BonusTeatro a gritar conmigo, y formamos un equipo humano que trabajó sin remuneración económica durante varios meses. Trabajamos con la plena convicción de que «AHORA» debía llegar al escenario, porque ahí, en medio de la oscuridad de las butacas, podía estar sentada otra mujer igual que nosotras, que ese día, justo ese día, necesitara de nuestras historias, de nuestras palabras, de nuestra fuerza para salir del terrible hoyo oscuro en el que nos entierra la violencia.</p><p class="verbs">El momento de hablar es AHORA.<br>No sos tonta.<br>No tenés que protegerlo.<br>La vida está llena de colores y de felicidad afuera de ese hueco en el que estás.<br>No perdás un minuto más.<br>No vale la pena.<br>En el futuro te vas a arrepentir de no haber salido antes de ahí.<br>El momento de decir «basta» es AHORA.</p><p class="sign">M.M.</p>`,
+     en:`<p>Theatre, like every other art, has the capacity to heal. Making work for the stage has always been the place where I hand over my obsessions in order, somehow, to be cured of them. This time, more than an obsession, what I handed to the stage was a trauma. «AHORA», as my own voice puts it on stage, is less a play than a scream.</p><p>Ten years after ending a relationship in which I was abused by my partner in many ways, I felt I finally had the strength to speak about it, to put it on stage, to heal.</p><p>I invited my companions from BonusTeatro to scream with me, and we formed a company that worked unpaid for several months. We worked in the full conviction that «AHORA» had to reach the stage, because there, in the darkness of the seats, another woman just like us might be sitting — one who that day, that very day, needed our stories, our words, our strength to climb out of the terrible dark hole that violence buries us in.</p><p class="verbs">The moment to speak is NOW.<br>You are not stupid.<br>You do not have to protect him.<br>Life is full of colour and happiness outside that hole you are in.<br>Do not lose another minute.<br>It is not worth it.<br>In the future you will regret not having left sooner.<br>The moment to say «enough» is NOW.</p><p class="sign">M.M.</p>`
+   },
+   synopsis:{
+     es:`<p>«Ahora» es un espectáculo performático de autoficción en el cual cinco mujeres exponen en el escenario distintas vivencias personales, donde cada una de ellas experimentó violencia en una relación amorosa-tóxica que cambió sus vidas. El espectáculo es un viaje dinámico entre video, luces y sonido, donde reímos y lloramos a la vez; pero, sobre todo, es un evento para levantar la voz, para exigir una reacción, para que el grito de «¡No más!» resuene con fuerza decisiva.</p><p>El concepto de autoficción trabajado plantea que los hechos presentados son una combinación entre situaciones reales que acontecieron a estas mujeres y algunos eventos ficcionales. Las actuaciones son completamente realistas y en constante relación directa con el espectador. La representación, con una duración de 1 hora y 20 minutos, pasa por momentos de diálogo, canto, música, baile y coreografía, todo dentro de una estética muy performática y brechtiana.</p>`,
+     en:`<p>«Ahora» is a performative autofiction in which five women bring to the stage different personal experiences, each of them having lived through violence in a toxic love relationship that changed her life. The show is a dynamic journey through video, light and sound, where we laugh and cry at once; but above all it is an event for raising our voices, for demanding a reaction, so that the cry of «No more!» rings out with decisive force.</p><p>The autofiction at work here means that what is presented combines real situations these women lived through with some fictional events. The performances are entirely realistic and in constant, direct relation with the audience. The piece runs one hour and twenty minutes and moves through dialogue, song, music, dance and choreography, all within a strongly performative, Brechtian aesthetic.</p>`
+   },
+   credits:[
+     {role:{es:"Dirección",en:"Direction"},name:"Mabel Marín"},
+     {role:{es:"Asistencia de dirección",en:"Assistant director"},name:"Silvia Montenegro"},
+     {role:{es:"Dramaturgia",en:"Playwriting"},name:"Mabel Marín, en colaboración con María Luisa Garita, Verónica Quesada, Janil Johnson y Katherine Bermúdez"},
+     {role:{es:"Actuación",en:"Cast"},name:"María Luisa Garita, Verónica Quesada, Janil Johnson, Katherine Bermúdez, Mabel Marín, Brenda Carrillo"},
+     {role:{es:"Diseño sonoro",en:"Sound design"},name:"Brenda Carrillo"},
+     {role:{es:"Asistencia técnica de sonido",en:"Sound technician"},name:"Elio Burgos"},
+     {role:{es:"Escenografía",en:"Set design"},name:"Escena Taller (Paola Cabrera y Jordan Fajardo)"},
+     {role:{es:"Animación, video mapping e iluminación",en:"Animation, video mapping & lighting"},name:"Randy Gutiérrez"},
+     {role:{es:"Vestuario y diseño gráfico",en:"Costume & graphic design"},name:"Bárbara Cuevas"},
+     {role:{es:"Fotografía",en:"Photography"},name:"Jorge Mario Zuleta"},
+     {role:{es:"Realización audiovisual y redes",en:"Audiovisual & social media"},name:"Josué Zuñiga y Paola Cabrera"},
+     {role:{es:"Producción",en:"Production"},name:"Verónica Quesada"}
+   ],
+   mark:"assets/img/obras/ahora/logo-dark.png",   /* logotipo recortado del afiche, negro convertido en transparencia */
+   posters:["assets/img/obras/ahora/afiche-1.jpg","assets/img/obras/ahora/afiche-2.jpg","assets/img/obras/ahora/afiche-3.jpg"],
    trailer:{id:"1KObYGPRzSS5g3HGnfRVGxzQVKk_e6W4S"},
    videos:[
      {label:{es:"Promocional 1",en:"Promo 1"},id:"1Hqy0D7cUAeR02EL8tqYuAHz7zxT_UPCS"},
