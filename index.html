@@ -27,6 +27,7 @@
 <link rel="preload" as="image" href="assets/img/logo-full.png" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/lenis-1.3.26.min.js"></script>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Mabel Marín","alternateName":"Mabel Marín Ureña","jobTitle":["Directora teatral","Actriz","Dramaturga","Profesora de Arte Escénico"],"nationality":"Costa Rica","url":"https://www.mabelmarin.org","image":"https://www.mabelmarin.org/assets/img/mabel-portrait.jpg","email":"mabelmarin86@gmail.com","telephone":"+50688711037","address":{"@type":"PostalAddress","addressLocality":"San José","addressCountry":"CR"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Kent"},{"@type":"CollegeOrUniversity","name":"Universidad de Chile"},{"@type":"CollegeOrUniversity","name":"Universidad Nacional de Costa Rica"},{"@type":"CollegeOrUniversity","name":"Universidad de Costa Rica"}],"award":["Premio Nacional de Teatro a Mejor Dirección (2012)","Premio Nacional de Teatro a Mejor Dirección (2020)","Ganadora del Concurso Nacional de Dramaturgia 2025 (Teatro Nacional de Costa Rica)"],"sameAs":["https://www.instagram.com/mabelmarin.cr","https://www.youtube.com/channel/UCvkrxcAaLRPYo4SVPK7LW1A"]}
@@ -678,6 +679,14 @@ body.sheet-open{overflow:hidden}
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .intro{display:none}
 }
+</style>
+<style>
+/* Lenis: reglas de lenis.css que aplican aquí. .lenis va en <html> solo mientras
+   Lenis existe; .lenis-smooth solo DURANTE un scroll suave (los iframes no
+   atrapan la rueda a mitad de camino). */
+html.lenis,html.lenis body{height:auto}
+.lenis [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}
 </style>
 </head>
 <body>
@@ -1552,6 +1561,104 @@ function initProgress(){
 }
 function boot(){ initIntro(); initScrollFX(); initInteractions(); initProgress(); }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',boot);}else{boot();}
+</script>
+<script>
+/* SCROLL SUAVE — Lenis 1.3.26
+   Lenis no simula el scroll: mueve el scroll REAL de la ventana con inercia.
+   Por eso position:sticky, los pin de ScrollTrigger y animation-timeline
+   siguen funcionando igual, sin scrollerProxy.
+   - Solo suaviza rueda y trackpad. El dedo queda nativo (syncTouch apagado):
+     el scroll táctil del teléfono ya es inercial y suavizarlo lo empeora.
+   - Con prefers-reduced-motion NO existe: scroll nativo 1:1. Se monta y se
+     desmonta en vivo si la preferencia cambia.
+   - Si la página bloquea su scroll (modal, carrito, menú: overflow hidden en
+     body o en html), Lenis se detiene. overflow:hidden no frena un scrollTo
+     por script, así que sin esto la rueda seguiría moviendo la página por
+     debajo del modal.
+   - Un panel con scroll propio (carrito, ficha, lista) scrollea nativo
+     (allowNestedScroll): la página no le roba la rueda.
+   - Enlaces #ancla pulsados con el ratón viajan con la misma inercia. Si la
+     página ya maneja ese clic (preventDefault) o se activó con teclado, no se
+     toca: el navegador mueve el foco al destino y eso no se reemplaza. */
+(function () {
+  'use strict';
+  if (!window.matchMedia) return;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  var html = document.documentElement;
+  var lenis = null;
+  var conGsap = false;
+  var tick = function (t) { if (lenis) lenis.raf(t * 1000); };
+
+  function bloqueada() {
+    var o = document.body ? getComputedStyle(document.body).overflowY : '';
+    return o === 'hidden' || o === 'clip' ||
+      /hidden|clip/.test(html.style.overflow + ' ' + html.style.overflowY);
+  }
+  function sincroniza() {
+    if (!lenis) return;
+    if (bloqueada()) lenis.stop(); else lenis.start();
+  }
+
+  function monta() {
+    if (lenis || reduce.matches) return;
+    conGsap = !!(window.gsap && window.ScrollTrigger);
+    lenis = new Lenis({
+      lerp: 0.085,
+      smoothWheel: true,
+      allowNestedScroll: true,
+      stopInertiaOnNavigate: true,
+      autoRaf: !conGsap
+    });
+    if (conGsap) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(tick);
+      gsap.ticker.lagSmoothing(0);
+    }
+    sincroniza();
+    window.__lenis = lenis;
+  }
+  function desmonta() {
+    if (!lenis) return;
+    if (conGsap) {
+      gsap.ticker.remove(tick);
+      gsap.ticker.lagSmoothing(500, 33);
+    }
+    lenis.destroy();
+    lenis = null;
+    window.__lenis = null;
+  }
+
+  function ancla(e) {
+    if (!lenis || e.defaultPrevented || e.detail === 0 || e.button ||
+        e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a || a.target) return;
+    var h = a.getAttribute('href');
+    var id = h.slice(1);
+    var destino = null;
+    try { destino = id ? document.getElementById(decodeURIComponent(id)) : null; } catch (err) {}
+    if (!destino && (id === '' || id === 'top')) destino = 0;
+    if (destino === null) return;
+    sincroniza();
+    if (lenis.isStopped) return;
+    e.preventDefault();
+    lenis.scrollTo(destino);
+    if (id && location.hash !== h) history.pushState(null, '', h);
+  }
+
+  function arranca() {
+    if (!window.Lenis) return; // el archivo no llegó: scroll nativo, nada más
+    monta();
+    var cambia = function () { if (reduce.matches) desmonta(); else monta(); };
+    if (reduce.addEventListener) reduce.addEventListener('change', cambia);
+    else if (reduce.addListener) reduce.addListener(cambia);
+    new MutationObserver(sincroniza).observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
+    new MutationObserver(sincroniza).observe(html, { attributes: true, attributeFilter: ['style'] });
+    window.addEventListener('click', ancla);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arranca);
+  else arranca();
+})();
 </script>
 </body>
 </html>
